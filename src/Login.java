@@ -33,5 +33,4 @@ public class Login {
         frame.setVisible(true);
     }
 
-
 }
