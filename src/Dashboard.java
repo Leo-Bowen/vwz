@@ -23,6 +23,7 @@ public class Dashboard {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Dashboard");
         frame.setContentPane(new Dashboard().rootPanel);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
