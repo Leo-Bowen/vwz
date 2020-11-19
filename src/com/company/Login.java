@@ -1,4 +1,5 @@
 package com.company;
+import com.jdbc.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -9,6 +10,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Statement;
 
 public class Login extends JFrame{
     private JTextField textField1;
@@ -20,6 +22,7 @@ public class Login extends JFrame{
     private String password = "4f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb"; //user
     private static JFrame frame;
     //constructor
+
 
     public Login() {
         button1.addActionListener(new ActionListener() {
@@ -58,7 +61,10 @@ public class Login extends JFrame{
             }
 
     }
-    public static void main(String[] args) {
+
+
+
+    public static void main(String[] args) throws Exception {
         frame = new JFrame("Login");
         frame.setContentPane(new Login().rootPanel);
         frame.setSize(600, 400);
@@ -66,6 +72,7 @@ public class Login extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+
     }
 
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException
