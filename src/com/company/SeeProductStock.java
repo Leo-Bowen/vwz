@@ -6,7 +6,7 @@ public class SeeProductStock {
     private JPanel panel1;
     private JButton saveAndCloseProductButton;
     private JTextArea maxiGlanzGeschirrspülmittelTextArea;
-    private JTextArea a000001TextArea;
+    private JTextArea a00001TextArea;
     private JTextArea a250TextArea;
     private JTextArea a332010TextArea;
 
