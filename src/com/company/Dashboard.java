@@ -1,3 +1,5 @@
+package com.company;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,11 +15,37 @@ public class Dashboard {
     private JButton addEmployeeButton;
 
     public Dashboard() {
-        editOrderings.addActionListener(new ActionListener() {
+        orderProductsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
             }
         });
+        editProductButton.addActionListener(new ActionListener() { //editProductButton
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        addProductButton.addActionListener(new ActionListener() { //addProductButton
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        editEmployeeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        addEmployeeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
     }
 
     public static void main(String[] args) {
