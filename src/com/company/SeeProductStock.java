@@ -7,7 +7,8 @@ public class SeeProductStock {
     private JButton saveAndCloseProductButton;
     private JTextArea maxiGlanzGeschirrspülmittelTextArea;
     private JTextArea a000001TextArea;
-    private JTextArea maxiGlanzGmbHTextArea;
+    private JTextArea a250TextArea;
+    private JTextArea a332010TextArea;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("SeeProductStock");

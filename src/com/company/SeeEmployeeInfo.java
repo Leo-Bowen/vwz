@@ -8,6 +8,7 @@ public class SeeEmployeeInfo {
     private JTextArea leoWangTextArea;
     private JTextArea a111998TextArea;
     private JTextArea a10102020TextArea;
+    private JTextArea a0001TextArea;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("SeeEmployeeInfo");

@@ -8,6 +8,7 @@ public class AddEmployee {
     private JTextField textField2;
     private JTextField textField3;
     private JButton enterCredentialsButton;
+    private JTextField textField4;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("AddEmployee");
