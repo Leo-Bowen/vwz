@@ -15,7 +15,7 @@ public class Login extends JFrame{
     private JButton button1;
     private JPanel rootPanel;
     private String username = "admin";
-    private String password = "4f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb";
+    private String password = "4f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb"; //user
     private static JFrame frame;
     //constructor
 
@@ -23,16 +23,8 @@ public class Login extends JFrame{
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String s = new String(passwordField1.getPassword()); //Arrays.equals(password.toCharArray(), passwordField1.getPassword())
                 try {
-                    if(textField1.getText().equals(username) && password.equals(toHexString(getSHA(s)))){
-
-                        Dashboard.main(new String[0]);
-                        //frame.setVisible(false); //hides
-                        frame.dispose(); //deletes
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Wrong Password or Username");
-                    }
+                    credentials();
                 } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
                     noSuchAlgorithmException.printStackTrace();
                 }
@@ -42,12 +34,28 @@ public class Login extends JFrame{
             @Override
             public void keyPressed(KeyEvent e) {
                 if(e.getKeyCode() == KeyEvent.VK_ENTER){
-                    JOptionPane.showMessageDialog(null,passwordField1.getPassword().toString());
+                    try {
+                        credentials();
+                    } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
+                        noSuchAlgorithmException.printStackTrace();
+                    }
                 }
             }
         });
     }
 
+    public void credentials() throws NoSuchAlgorithmException{
+        String s = new String(passwordField1.getPassword()); //Arrays.equals(password.toCharArray(), passwordField1.getPassword())
+            if(textField1.getText().equals(username) && password.equals(toHexString(getSHA(s)))){
+
+                Dashboard.main(new String[0]);
+                //frame.setVisible(false); //hides
+                frame.dispose(); //deletes
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Password or Username");
+            }
+
+    }
     public static void main(String[] args) {
         frame = new JFrame("Login");
         frame.setContentPane(new Login().rootPanel);
