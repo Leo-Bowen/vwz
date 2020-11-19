@@ -1,3 +1,5 @@
+package com.company;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -7,13 +9,13 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 
 public class Login extends JFrame{
     private JTextField textField1;
     private JPasswordField passwordField1;
     private JButton button1;
     private JPanel rootPanel;
+    private JPanel secondPanel;
     private String username = "admin";
     private String password = "4f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb"; //user
     private static JFrame frame;
