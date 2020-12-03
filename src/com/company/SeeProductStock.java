@@ -12,6 +12,7 @@ public class SeeProductStock {
     private JTextArea a250TextArea;
     private JTextArea a332010TextArea;
     private JPanel secondPanel;
+    private static JFrame frame;
 
     public SeeProductStock() {
         saveAndCloseProductButton.addActionListener(new ActionListener() {
@@ -23,8 +24,9 @@ public class SeeProductStock {
     }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("SeeProductStock");
+        frame = new JFrame("SeeProductStock");
         frame.setContentPane(new SeeProductStock().rootPanel);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

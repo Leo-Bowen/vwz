@@ -1,6 +1,8 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class AddProduct {
     private JPanel rootPanel;
@@ -10,10 +12,24 @@ public class AddProduct {
     private JTextField textField4;
     private JTextField textField5;
     private JPanel secondPanel;
+    private static JFrame frame;
+
+
+    public AddProduct() {
+        saveProductInformationButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //send DATA
+                Dashboard.main(new String[0]);
+                frame.setVisible(false); //hides
+            }
+        });
+    }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("AddProduct");
+        frame = new JFrame("AddProduct");
         frame.setContentPane(new AddProduct().rootPanel);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

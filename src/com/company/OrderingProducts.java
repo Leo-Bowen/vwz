@@ -14,6 +14,7 @@ public class OrderingProducts {
     public static void main(String[] args) {
         JFrame frame = new JFrame("OrderingProducts");
         frame.setContentPane(new OrderingProducts().rootPanel);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

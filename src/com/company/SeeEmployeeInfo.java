@@ -14,6 +14,7 @@ public class SeeEmployeeInfo {
     public static void main(String[] args) {
         JFrame frame = new JFrame("SeeEmployeeInfo");
         frame.setContentPane(new SeeEmployeeInfo().rootPanel);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
