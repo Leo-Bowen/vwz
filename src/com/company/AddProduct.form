@@ -18,23 +18,23 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="73448" class="javax.swing.JLabel">
+          <component id="73448" class="javax.swing.JLabel" binding="productIDLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="ProductName"/>
+              <text value="Product ID"/>
             </properties>
           </component>
-          <component id="354db" class="javax.swing.JLabel">
+          <component id="354db" class="javax.swing.JLabel" binding="productNameLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="ProductID"/>
+              <text value="Product Name"/>
             </properties>
           </component>
-          <component id="1521" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="1521" class="javax.swing.JTextField" binding="tf_id">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -42,15 +42,17 @@
             </constraints>
             <properties/>
           </component>
-          <component id="40fd8" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+          <component id="40fd8" class="javax.swing.JTextField" binding="tf_name">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
-          <component id="c54b9" class="javax.swing.JLabel">
+          <component id="c54b9" class="javax.swing.JLabel" binding="quantityLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -58,29 +60,33 @@
               <text value="Quantity"/>
             </properties>
           </component>
-          <component id="866d5" class="javax.swing.JLabel">
+          <component id="866d5" class="javax.swing.JLabel" binding="dateOfEntryLabel">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="DateOfEntry"/>
+              <text value="Date Of Entry"/>
             </properties>
           </component>
-          <component id="909be" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+          <component id="909be" class="javax.swing.JTextField" binding="tf_quantity">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
-          <component id="ade2" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+          <component id="ade2" class="javax.swing.JTextField" binding="tf_entrydate">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
           <component id="33047" class="javax.swing.JButton" binding="saveProductInformationButton" default-binding="true">
             <constraints>

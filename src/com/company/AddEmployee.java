@@ -1,8 +1,12 @@
 package com.company;
 
+import com.jdbc.Product;
+import com.jdbc.VWZDao;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 
 public class AddEmployee {
     private JPanel rootPanel;
@@ -19,7 +23,7 @@ public class AddEmployee {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //send DATA
-                Dashboard.main(new String[0]);
+                  Dashboard.main(new String[0]);
                 //frame.setVisible(false); //hides
                 frame.dispose(); //deletes
             }
