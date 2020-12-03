@@ -6,21 +6,22 @@ import java.awt.event.ActionListener;
 
 public class Dashboard {
     private JPanel rootPanel;
-    private JButton editOrderings;
-    private JLabel helloLabel;
-    private JButton orderProductsButton;
-    private JButton editProductButton;
-    private JButton addProductButton;
-    private JButton editEmployeeButton;
     private JButton addEmployeeButton;
+    private JButton editEmployeeButton;
+    private JButton addProductButton;
+    private JButton editProductButton;
+    private JButton orderProductsButton;
+    private JButton editOrderingsButton;
+    private JPanel secondaryPanel;
+    private JButton editOrderings;
 
-    public Dashboard() {
-        editOrderings.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-            }
-        });
-    }
+    //public Dashboard() {
+    //    editOrderings.addActionListener(new ActionListener() {
+    //        @Override
+    //        public void actionPerformed(ActionEvent e) {
+    //        }
+    //    });
+    //}
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Dashboard");
