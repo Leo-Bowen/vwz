@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,18 +33,20 @@ public class AddProduct {
             public void actionPerformed(ActionEvent e) {
                 //send DATA
                 VWZDao vwzDao = new VWZDao();
+
                 try {
                     vwzDao.init();
+
                     //Product product = new Product(3,"Apple",2, Date.valueOf("2020-12-03"));
                     Date date = Date.valueOf(tf_entrydate.getText());
-                    Product entryproduct = new Product(Integer.parseInt(tf_id.getText()), tf_name.getText(),Integer.parseInt(tf_quantity.getText()), date);
+                    Product entryproduct = new Product(Integer.parseInt(tf_id.getText()), tf_name.getText(), Integer.parseInt(tf_quantity.getText()), date);
                     vwzDao.insertProductData(entryproduct);
                     productlist = vwzDao.loadProduct();
                     productlist.stream().forEach(products -> {
                         System.out.println(products.toString());
                     });
-                } catch (Exception exception) {
-                    exception.printStackTrace();
+                } catch (ClassNotFoundException | SQLException err) {
+                    err.printStackTrace();
                 }
 
 

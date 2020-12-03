@@ -13,7 +13,7 @@ public class DbController {
     private Connection conn;
     private static DbController instance;
 
-    public DbController() throws Exception {
+    public DbController() throws ClassNotFoundException {
 
         try {
             Class.forName(driver);
@@ -38,7 +38,7 @@ public class DbController {
         return conn;
     }
 
-    public static DbController getInstance() throws Exception {
+    public static DbController getInstance() throws ClassNotFoundException {
         if (instance == null) {
             setInstance(new DbController());
         }

@@ -20,7 +20,7 @@ public class VWZDao {
     Connection conn;
 
     //DefaultDAO
-    public void init() throws Exception {
+    public void init() throws ClassNotFoundException {
         if (dbctrl == null) {
             dbctrl = DbController.getInstance();
         }
