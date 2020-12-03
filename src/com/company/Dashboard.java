@@ -27,8 +27,8 @@ public class Dashboard {
         editEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //.main(new String[0]);
-                //frame.setVisible(false); //hides
+                SeeEmployeeInfo.main(new String[0]);
+                frame.setVisible(false); //hides
             }
         });
         addProductButton.addActionListener(new ActionListener() {
@@ -55,7 +55,7 @@ public class Dashboard {
         editOrderingsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //FEHLT
             }
         });
     }

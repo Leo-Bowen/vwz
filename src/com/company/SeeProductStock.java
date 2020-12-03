@@ -18,7 +18,9 @@ public class SeeProductStock {
         saveAndCloseProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                //send DATA
+                Dashboard.main(new String[0]);
+                frame.setVisible(false); //hides
             }
         });
     }
