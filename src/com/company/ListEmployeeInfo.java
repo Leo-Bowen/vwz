@@ -4,18 +4,15 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class UpdateEmployeeInfo {
+public class ListEmployeeInfo {
     private JPanel rootPanel;
     private JButton saveAndCloseThisButton;
-    private JTextArea leoWangTextArea;
-    private JTextArea a111998TextArea;
-    private JTextArea a10102020TextArea;
-    private JTextArea a0001TextArea;
     private JPanel secondPanel;
-    private JButton deleteEmployeeButton;
+    private JButton updateEmployeeButton;
+    private JList list1;
     private static JFrame frame;
 
-    public UpdateEmployeeInfo() {
+    public ListEmployeeInfo() {
         saveAndCloseThisButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -23,11 +20,18 @@ public class UpdateEmployeeInfo {
                 frame.setVisible(false);
             }
         });
+        updateEmployeeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UpdateEmployee.main(new String[0]);
+                frame.setVisible(false);
+            }
+        });
     }
 
     public static void main(String[] args) {
         frame = new JFrame("UpdateEmployeeInfo");
-        frame.setContentPane(new UpdateEmployeeInfo().rootPanel);
+        frame.setContentPane(new ListEmployeeInfo().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

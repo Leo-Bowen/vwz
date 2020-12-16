@@ -1,19 +1,31 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class DeleteEmployee {
     private JPanel rootPanel;
-    private JTextArea leoWangTextArea;
-    private JTextArea a0001TextArea;
-    private JTextArea a111999TextArea;
-    private JTextArea a332020TextArea;
+    private JPanel secondaryPanel;
+    private JTextField textField1;
     private JButton deleteEmployeeButton;
-    private JPanel secondPanel;
+    private static JFrame frame;
+
+    public DeleteEmployee() {
+        deleteEmployeeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ListEmployeeInfo.main(new String[0]);
+                frame.setVisible(false);
+                JOptionPane.showMessageDialog(null, "Employee successfully deleted!");
+            }
+        });
+    }
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("DeleteEmployee");
+        frame = new JFrame("DeleteEmployee");
         frame.setContentPane(new DeleteEmployee().rootPanel);
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

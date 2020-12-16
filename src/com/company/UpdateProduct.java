@@ -20,8 +20,15 @@ public class UpdateProduct {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //send DATA
-                Dashboard.main(new String[0]);
+                ListProduct.main(new String[0]);
                 frame.setVisible(false); //hides
+            }
+        });
+        deleteProductButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DeleteProduct.main(new String[0]);
+                frame.setVisible(false);
             }
         });
     }

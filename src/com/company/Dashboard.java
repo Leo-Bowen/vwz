@@ -28,7 +28,7 @@ public class Dashboard {
         editEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UpdateEmployeeInfo.main(new String[0]);
+                ListEmployeeInfo.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });
@@ -42,7 +42,7 @@ public class Dashboard {
         editProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UpdateProduct.main(new String[0]);
+                ListProduct.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });
@@ -57,6 +57,17 @@ public class Dashboard {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //FEHLT
+            }
+        });
+        logOutButton.addActionListener(new ActionListener() { //basic logout
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Login.main(new String[0]);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
+                frame.setVisible(false);
             }
         });
     }

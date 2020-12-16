@@ -12,6 +12,8 @@ public class CreateEmployee {
     private JButton enterCredentialsButton;
     private JTextField textField4;
     private JPanel secondPanel;
+    private JTextField textField5;
+    private JTextField textField6;
     private static JFrame frame;
 
     public CreateEmployee() {

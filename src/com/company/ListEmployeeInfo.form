@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.company.ListEmployeeInfo">
+  <grid id="27dc6" binding="rootPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="d24cd" binding="secondPanel" layout-manager="GridLayoutManager" row-count="3" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="5" left="10" bottom="5" right="10"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="500" height="300"/>
+          </grid>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="eeca3" class="javax.swing.JButton" binding="saveAndCloseThisButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Save and close"/>
+            </properties>
+          </component>
+          <component id="224ca" class="javax.swing.JButton" binding="updateEmployeeButton">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Update this Employee"/>
+            </properties>
+          </component>
+          <scrollpane id="dcef1">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="4e6ba" class="javax.swing.JList" binding="list1" default-binding="true">
+                <constraints/>
+                <properties>
+                  <model>
+                    <item value="A"/>
+                    <item value="B"/>
+                    <item value="C"/>
+                    <item value="D"/>
+                    <item value="E"/>
+                    <item value="F"/>
+                    <item value="G"/>
+                    <item value="H"/>
+                    <item value="I"/>
+                    <item value="J"/>
+                    <item value="K"/>
+                    <item value="L"/>
+                    <item value="M"/>
+                    <item value="N"/>
+                    <item value="O"/>
+                    <item value="P"/>
+                    <item value="Q"/>
+                    <item value="R"/>
+                    <item value="S"/>
+                    <item value="T"/>
+                    <item value="U"/>
+                    <item value="V"/>
+                    <item value="W"/>
+                    <item value="X"/>
+                    <item value="Y"/>
+                    <item value="Z"/>
+                  </model>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
