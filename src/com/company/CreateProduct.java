@@ -8,11 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
 
-public class AddProduct {
+public class CreateProduct {
     private JPanel rootPanel;
     private JButton saveProductInformationButton;
     private JTextField tf_quantity;
@@ -27,7 +25,7 @@ public class AddProduct {
     private static JFrame frame;
     private List<Product> productlist;
 
-    public AddProduct() {
+    public CreateProduct() {
         saveProductInformationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -58,7 +56,7 @@ public class AddProduct {
 
     public static void main(String[] args) {
         frame = new JFrame("AddProduct");
-        frame.setContentPane(new AddProduct().rootPanel);
+        frame.setContentPane(new CreateProduct().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

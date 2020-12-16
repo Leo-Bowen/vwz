@@ -14,34 +14,35 @@ public class Dashboard {
     private JButton addProductButton;
     private JButton editEmployeeButton;
     private JButton addEmployeeButton;
+    private JButton logOutButton;
     private static JFrame frame;
 
     public Dashboard() {
         addEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddEmployee.main(new String[0]);
+                CreateEmployee.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });
         editEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SeeEmployeeInfo.main(new String[0]);
+                UpdateEmployeeInfo.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });
         addProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AddProduct.main(new String[0]);
+                CreateProduct.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });
         editProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                SeeProductStock.main(new String[0]);
+                UpdateProduct.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });

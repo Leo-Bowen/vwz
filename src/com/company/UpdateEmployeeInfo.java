@@ -4,30 +4,30 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class SeeProductStock {
+public class UpdateEmployeeInfo {
     private JPanel rootPanel;
-    private JButton saveAndCloseProductButton;
-    private JTextArea maxiGlanzGeschirrspülmittelTextArea;
-    private JTextArea a00001TextArea;
-    private JTextArea a250TextArea;
-    private JTextArea a332010TextArea;
+    private JButton saveAndCloseThisButton;
+    private JTextArea leoWangTextArea;
+    private JTextArea a111998TextArea;
+    private JTextArea a10102020TextArea;
+    private JTextArea a0001TextArea;
     private JPanel secondPanel;
+    private JButton deleteEmployeeButton;
     private static JFrame frame;
 
-    public SeeProductStock() {
-        saveAndCloseProductButton.addActionListener(new ActionListener() {
+    public UpdateEmployeeInfo() {
+        saveAndCloseThisButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //send DATA
                 Dashboard.main(new String[0]);
-                frame.setVisible(false); //hides
+                frame.setVisible(false);
             }
         });
     }
 
     public static void main(String[] args) {
-        frame = new JFrame("SeeProductStock");
-        frame.setContentPane(new SeeProductStock().rootPanel);
+        frame = new JFrame("UpdateEmployeeInfo");
+        frame.setContentPane(new UpdateEmployeeInfo().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

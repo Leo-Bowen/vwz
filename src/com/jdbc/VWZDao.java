@@ -1,6 +1,6 @@
 package com.jdbc;
 
-import com.mysql.cj.x.protobuf.MysqlxPrepare;
+//import com.mysql.cj.x.protobuf.MysqlxPrepare;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
