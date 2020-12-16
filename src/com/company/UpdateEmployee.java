@@ -21,8 +21,13 @@ public class UpdateEmployee {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DeleteEmployee.main(new String[0]);
+                int opt = JOptionPane.showConfirmDialog(frame, "Are you sure you want to delete this employee?", "Warning", JOptionPane.YES_NO_OPTION);
                 frame.setVisible(false);
+                if (opt == JOptionPane.YES_OPTION) {
+                    ListEmployeeInfo.main(new String[0]);
+                } else if (opt == JOptionPane.NO_OPTION){
+                    UpdateEmployee.main(new String[0]);
+                }
             }
         });
         saveAndCloseButton.addActionListener(new ActionListener() {
