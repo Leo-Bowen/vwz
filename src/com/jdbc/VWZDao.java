@@ -53,19 +53,18 @@ public class VWZDao {
         productset = preparedStatement.executeQuery();
 
         while (productset.next()) {
-            Product product = new Product(productset.getInt("employee_id"), productset.getString("product_name"), productset.getInt("product_quantity"), productset.getDate("product_entrydate"));
+            Product product = new Product(productset.getInt("product_id"), productset.getString("product_name"), productset.getInt("product_quantity"), productset.getDate("product_entrydate"));
             productlist.add(product);
         }
         return productlist;
     }
-/*
-        public int deleteProduct(int id) throws SQLException {
-            statement.executeUpdate(String.format("DELETE FROM QUOTES WHERE ASSET_ID = '%s';", id));
-            statement.executeUpdate(String.format("DELETE FROM ASSETS WHERE ID = '%s';", id));
-            System.out.println("ID " + id + " deleted successfully");
-            return 0;
-        }
-     */
+
+    public int deleteProduct(int id) throws SQLException {
+        preparedStatement = conn.prepareStatement("DELETE FROM product_db WHERE product_id=?");
+        preparedStatement.setInt(1, id);
+        int statusCode = preparedStatement.executeUpdate();
+        return statusCode;
+    }
 
     public int insertEmployeeData(Employee e) throws SQLException {
         //executeQuery() is used for SELECT sql operation
@@ -76,11 +75,22 @@ public class VWZDao {
         preparedStatement.setDate(3, e.getBirthdate());
         preparedStatement.setDate(4, e.getEntrydate());
         preparedStatement.setString(5, e.getPosition());
-        preparedStatement.setString(6,e.getSchedule());
+        preparedStatement.setString(6, e.getSchedule());
 
         preparedStatement.execute();
 
         return 0;
+    }
+
+    public List<Employee> loadEmployee() throws SQLException {
+        preparedStatement = conn.prepareStatement("SELECT * FROM employee_db");
+        employeeset = preparedStatement.executeQuery();
+
+        while (employeeset.next()) {
+            Employee employee = new Employee(employeeset.getInt("employee_id"), employeeset.getString("employee_firstname"), employeeset.getString("employee_lastname"), employeeset.getDate("employee_birthdate"), employeeset.getDate("employee_entrydate"), employeeset.getString("employee_position"), employeeset.getString("employee_schedule"));
+            employeelist.add(employee);
+        }
+        return employeelist;
     }
 
     public void closeConnection() {

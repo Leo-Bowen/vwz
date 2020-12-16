@@ -1,8 +1,12 @@
 package com.company;
 
+import com.models.Product;
+import com.models.ProductController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
 public class ListProduct {
     private JPanel rootPanel;
@@ -26,8 +30,17 @@ public class ListProduct {
             public void actionPerformed(ActionEvent e) {
                 UpdateProduct.main(new String[0]);
                 frame.setVisible(false);
+                ProductController productController = new ProductController();
+                try {
+                    productController.deleteProduct(4);
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                } catch (ClassNotFoundException classNotFoundException) {
+                    classNotFoundException.printStackTrace();
+                }
             }
         });
+
     }
 
     public static void main(String[] args) {
