@@ -1,27 +1,45 @@
 package com.company;
 
+import com.models.EmployeeController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.sql.SQLException;
 
 public class CreateEmployee {
     private JPanel rootPanel;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JButton enterCredentialsButton;
-    private JTextField textField4;
+    private JButton saveEmployeeButton;
+    private JTextField tf_firstname;
+    private JTextField tf_lastname;
+    private JTextField tf_birthdate;
+    private JTextField tf_employmentdate;
+    private JTextField tf_position;
+    private JTextField tf_schedule;
     private JPanel secondPanel;
-    private JTextField textField5;
-    private JTextField textField6;
+    private JLabel employeeFirstNameLabel;
+    private JLabel employeeLastNameLabel;
+    private JLabel employeeBirthdateLabel;
+    private JLabel employeeDateOfEmploymentLabel;
+    private JLabel employeePositionLabel;
+    private JLabel employeeScheduleLabel;
     private static JFrame frame;
+    private EmployeeController employeeController;
 
     public CreateEmployee() {
-        enterCredentialsButton.addActionListener(new ActionListener() {
+        saveEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //send DATA
-                  Dashboard.main(new String[0]);
+                try {
+                    //Product product = new Product(3,"Apple",2, Date.valueOf("2020-12-03"));
+                    employeeController = new EmployeeController();
+                    employeeController.addEmployee(tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()), Date.valueOf(tf_employmentdate.getText()), tf_position.getText(), tf_schedule.getText());
+                } catch (ClassNotFoundException | SQLException err) {
+                    err.printStackTrace();
+                }
+                Dashboard.main(new String[0]);
                 //frame.setVisible(false); //hides
                 frame.dispose(); //deletes
             }

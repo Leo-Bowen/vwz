@@ -14,7 +14,6 @@ public class DbController {
     private static DbController instance;
 
     public DbController() throws ClassNotFoundException {
-
         try {
             Class.forName(driver);
             System.out.println("JDBC_DRIVER loaded!");

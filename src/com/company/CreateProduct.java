@@ -1,7 +1,7 @@
 package com.company;
 
-import com.jdbc.Product;
-import com.jdbc.VWZDao;
+import com.models.Product;
+import com.models.ProductController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -18,36 +18,26 @@ public class CreateProduct {
     private JTextField tf_name;
     private JTextField tf_entrydate;
     private JPanel secondPanel;
-    private JLabel dateOfEntryLabel;
-    private JLabel quantityLabel;
+    private JLabel productDateOfEntryLabel;
+    private JLabel productQuantityLabel;
     private JLabel productNameLabel;
     private JLabel productIDLabel;
     private static JFrame frame;
     private List<Product> productlist;
+    private ProductController productController;
 
     public CreateProduct() {
         saveProductInformationButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //send DATA
-                VWZDao vwzDao = new VWZDao();
-
                 try {
-                    vwzDao.init();
-
                     //Product product = new Product(3,"Apple",2, Date.valueOf("2020-12-03"));
-                    Date date = Date.valueOf(tf_entrydate.getText());
-                    Product entryproduct = new Product(Integer.parseInt(tf_id.getText()), tf_name.getText(), Integer.parseInt(tf_quantity.getText()), date);
-                    vwzDao.insertProductData(entryproduct);
-                    productlist = vwzDao.loadProduct();
-                    productlist.stream().forEach(products -> {
-                        System.out.println(products.toString());
-                    });
+                    productController = new ProductController();
+                    productController.addProduct(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();
                 }
-
-
                 Dashboard.main(new String[0]);
                 frame.setVisible(false); //hides
             }

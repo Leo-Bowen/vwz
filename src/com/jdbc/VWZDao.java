@@ -1,6 +1,7 @@
 package com.jdbc;
 
-//import com.mysql.cj.x.protobuf.MysqlxPrepare;
+import com.models.Employee;
+import com.models.Product;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,6 +19,11 @@ public class VWZDao {
     private ResultSet employeeset;
     private List<Employee> employeelist = new ArrayList<>();
     Connection conn;
+    private Product product;
+
+    public VWZDao() throws ClassNotFoundException {
+        init();
+    }
 
     //DefaultDAO
     public void init() throws ClassNotFoundException {
@@ -29,38 +35,54 @@ public class VWZDao {
     }
 
     public int insertProductData(Product p) throws SQLException {
-
         //executeQuery() is used for SELECT sql operation
         //executeUpdate() is used for INSERT, UPDATE and DELETE sql operation.
-        preparedStatement = conn.prepareStatement("INSERT INTO product_db (product_id,product_name,product_quantity,product_entrydate) VALUES (?,?,?,?)");
-        preparedStatement.setInt(1, p.getId());
-        preparedStatement.setString (2, p.getName());
-        preparedStatement.setInt(3, p.getQuantity());
-        preparedStatement.setDate   (4, p.getEntrydate());
+        preparedStatement = conn.prepareStatement("INSERT INTO product_db (product_name,product_quantity,product_entrydate) VALUES (?,?,?)");
+        preparedStatement.setString(1, p.getName());
+        preparedStatement.setInt(2, p.getQuantity());
+        preparedStatement.setDate(3, p.getEntrydate());
 
         preparedStatement.execute();
 
         return 0;
     }
 
+
     public List<Product> loadProduct() throws SQLException {
         preparedStatement = conn.prepareStatement("SELECT * FROM product_db");
         productset = preparedStatement.executeQuery();
 
         while (productset.next()) {
-            Product product = new Product(productset.getInt("product_id"), productset.getString("product_name"), productset.getInt("product_quantity"), productset.getDate("product_entrydate"));
+            Product product = new Product(productset.getInt("employee_id"), productset.getString("product_name"), productset.getInt("product_quantity"), productset.getDate("product_entrydate"));
             productlist.add(product);
         }
         return productlist;
     }
 /*
-    public int deleteProduct(int id) throws SQLException {
-        statement.executeUpdate(String.format("DELETE FROM QUOTES WHERE ASSET_ID = '%s';", id));
-        statement.executeUpdate(String.format("DELETE FROM ASSETS WHERE ID = '%s';", id));
-        System.out.println("ID " + id + " deleted successfully");
+        public int deleteProduct(int id) throws SQLException {
+            statement.executeUpdate(String.format("DELETE FROM QUOTES WHERE ASSET_ID = '%s';", id));
+            statement.executeUpdate(String.format("DELETE FROM ASSETS WHERE ID = '%s';", id));
+            System.out.println("ID " + id + " deleted successfully");
+            return 0;
+        }
+     */
+
+    public int insertEmployeeData(Employee e) throws SQLException {
+        //executeQuery() is used for SELECT sql operation
+        //executeUpdate() is used for INSERT, UPDATE and DELETE sql operation.
+        preparedStatement = conn.prepareStatement("INSERT INTO employee_db (employee_firstname,employee_lastname,employee_birthdate,employee_entrydate,employee_position,employee_schedule) VALUES (?,?,?,?,?,?)");
+        preparedStatement.setString(1, e.getFirstname());
+        preparedStatement.setString(2, e.getLastname());
+        preparedStatement.setDate(3, e.getBirthdate());
+        preparedStatement.setDate(4, e.getEntrydate());
+        preparedStatement.setString(5, e.getPosition());
+        preparedStatement.setString(6,e.getSchedule());
+
+        preparedStatement.execute();
+
         return 0;
     }
- */
+
     public void closeConnection() {
         dbctrl.closeConnection();
     }

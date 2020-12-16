@@ -18,7 +18,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="82246" class="javax.swing.JLabel">
+          <component id="82246" class="javax.swing.JLabel" binding="employeeFirstNameLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="112" height="16"/>
@@ -28,19 +28,9 @@
               <text value="First Name"/>
             </properties>
           </component>
-          <component id="cd914" class="javax.swing.JLabel">
+          <component id="cd914" class="javax.swing.JLabel" binding="employeeDateOfEmploymentLabel">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="112" height="16"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="Position"/>
-            </properties>
-          </component>
-          <component id="e476a" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="112" height="16"/>
               </grid>
             </constraints>
@@ -48,31 +38,47 @@
               <text value="Date of Employment"/>
             </properties>
           </component>
-          <component id="69ce2" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+          <component id="e476a" class="javax.swing.JLabel" binding="employeePositionLabel">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="112" height="16"/>
+              </grid>
+            </constraints>
+            <properties>
+              <text value="Position"/>
+            </properties>
+          </component>
+          <component id="69ce2" class="javax.swing.JTextField" binding="tf_firstname">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
-          <component id="16549" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+          <component id="16549" class="javax.swing.JTextField" binding="tf_employmentdate">
             <constraints>
               <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
-          <component id="67c83" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+          <component id="67c83" class="javax.swing.JTextField" binding="tf_position">
             <constraints>
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
-          <component id="58795" class="javax.swing.JLabel">
+          <component id="58795" class="javax.swing.JLabel" binding="employeeBirthdateLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="112" height="16"/>
@@ -82,7 +88,7 @@
               <text value="Birthdate"/>
             </properties>
           </component>
-          <component id="d492d" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+          <component id="d492d" class="javax.swing.JTextField" binding="tf_birthdate">
             <constraints>
               <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
@@ -90,15 +96,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="10891" class="javax.swing.JButton" binding="enterCredentialsButton" default-binding="true">
-            <constraints>
-              <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Create Employee"/>
-            </properties>
-          </component>
-          <component id="c70b8" class="javax.swing.JLabel">
+          <component id="c70b8" class="javax.swing.JLabel" binding="employeeScheduleLabel">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -106,15 +104,17 @@
               <text value="Schedule Information"/>
             </properties>
           </component>
-          <component id="72034" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+          <component id="72034" class="javax.swing.JTextField" binding="tf_schedule">
             <constraints>
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
           </component>
-          <component id="5244" class="javax.swing.JLabel">
+          <component id="5244" class="javax.swing.JLabel" binding="employeeLastNameLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -122,13 +122,23 @@
               <text value="Last Name"/>
             </properties>
           </component>
-          <component id="10a13" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+          <component id="10a13" class="javax.swing.JTextField" binding="tf_lastname">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="10891" class="javax.swing.JButton" binding="saveEmployeeButton">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Create Employee"/>
+            </properties>
           </component>
         </children>
       </grid>

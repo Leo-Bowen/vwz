@@ -1,4 +1,4 @@
-package com.jdbc;
+package com.models;
 
 import java.sql.Date;
 
@@ -21,13 +21,18 @@ public class Product {
                 '}';
     }
 
+    public Product(String name, int quantity, Date date) {
+        this.name = name;
+        this.quantity = quantity;
+        this.entrydate = date;
+    }
+
     public Product(int id, String name, int quantity, Date date) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.entrydate = date;
     }
-
 
     public int getId() {
         return id;
