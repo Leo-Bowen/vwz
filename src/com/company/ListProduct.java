@@ -13,11 +13,22 @@ public class ListProduct {
     private JPanel secondaryPanel;
     private JButton saveAndCloseButton;
     private JButton updateThisProductButton;
-    private JList list1;
+    private JList productlist;
     private static JFrame frame;
 
 
     public ListProduct() {
+        ProductController productController = new ProductController();
+        try {
+            productlist = productController.loadProduct(productlist);
+            productlist.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            //productController.deleteProduct(4);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException classNotFoundException) {
+            classNotFoundException.printStackTrace();
+        }
+
         saveAndCloseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -28,16 +39,9 @@ public class ListProduct {
         updateThisProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UpdateProduct.main(new String[0]);
-                frame.setVisible(false);
-                ProductController productController = new ProductController();
-                try {
-                    productController.deleteProduct(4);
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                } catch (ClassNotFoundException classNotFoundException) {
-                    classNotFoundException.printStackTrace();
-                }
+                //UpdateProduct.main(new String[0]);
+                //frame.setVisible(false);
+
             }
         });
 

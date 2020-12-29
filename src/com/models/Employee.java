@@ -17,6 +17,7 @@ public class Employee {
 
     private String schedule;
 
+
     public Employee(String firstname, String lastname, Date birthdate, Date entrydate, String position, String schedule) {
         this.firstname = firstname;
         this.lastname = lastname;

@@ -3,6 +3,7 @@ package com.jdbc;
 import com.models.Employee;
 import com.models.Product;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -44,19 +45,26 @@ public class VWZDao {
 
         preparedStatement.execute();
 
+        preparedStatement.close();
         return 0;
     }
 
 
-    public List<Product> loadProduct() throws SQLException {
+    public int loadProduct(JList list) throws SQLException {
+        DefaultListModel DLM = new DefaultListModel();
+
         preparedStatement = conn.prepareStatement("SELECT * FROM product_db");
         productset = preparedStatement.executeQuery();
 
         while (productset.next()) {
             Product product = new Product(productset.getInt("product_id"), productset.getString("product_name"), productset.getInt("product_quantity"), productset.getDate("product_entrydate"));
-            productlist.add(product);
+            DLM.addElement(product);
         }
-        return productlist;
+        list.setModel(DLM);
+
+        productset.close();
+        preparedStatement.close();
+        return 0;
     }
 
     public int deleteProduct(int id) throws SQLException {
@@ -86,10 +94,13 @@ public class VWZDao {
         preparedStatement = conn.prepareStatement("SELECT * FROM employee_db");
         employeeset = preparedStatement.executeQuery();
 
+
         while (employeeset.next()) {
             Employee employee = new Employee(employeeset.getInt("employee_id"), employeeset.getString("employee_firstname"), employeeset.getString("employee_lastname"), employeeset.getDate("employee_birthdate"), employeeset.getDate("employee_entrydate"), employeeset.getString("employee_position"), employeeset.getString("employee_schedule"));
             employeelist.add(employee);
+
         }
+
         return employeelist;
     }
 

@@ -2,6 +2,7 @@ package com.models;
 
 import com.jdbc.VWZDao;
 
+import javax.swing.*;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;
@@ -16,12 +17,5 @@ public class EmployeeController {
         Employee entryemployee = new Employee(firstname, lastname, birthdate, entrydate, position, schedule);
         vwzDao.insertEmployeeData(entryemployee);
     }
-
-    public List<Employee> loadProduct() throws ClassNotFoundException, SQLException {
-        vwzDao = new VWZDao();
-        employeeList = vwzDao.loadEmployee();
-        return employeeList;
-    }
-
 
 }

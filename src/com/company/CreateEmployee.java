@@ -33,7 +33,6 @@ public class CreateEmployee {
             public void actionPerformed(ActionEvent e) {
                 //send DATA
                 try {
-                    //Product product = new Product(3,"Apple",2, Date.valueOf("2020-12-03"));
                     employeeController = new EmployeeController();
                     employeeController.addEmployee(tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()), Date.valueOf(tf_employmentdate.getText()), tf_position.getText(), tf_schedule.getText());
                 } catch (ClassNotFoundException | SQLException err) {

@@ -41,37 +41,10 @@
             <properties/>
             <border type="none"/>
             <children>
-              <component id="ba463" class="javax.swing.JList" binding="list1" default-binding="true">
+              <component id="ba463" class="javax.swing.JList" binding="productlist">
                 <constraints/>
                 <properties>
-                  <model>
-                    <item value="A"/>
-                    <item value="B"/>
-                    <item value="C"/>
-                    <item value="D"/>
-                    <item value="E"/>
-                    <item value="F"/>
-                    <item value="G"/>
-                    <item value="H"/>
-                    <item value="I"/>
-                    <item value="J"/>
-                    <item value="K"/>
-                    <item value="L"/>
-                    <item value="M"/>
-                    <item value="N"/>
-                    <item value="O"/>
-                    <item value="P"/>
-                    <item value="Q"/>
-                    <item value="R"/>
-                    <item value="S"/>
-                    <item value="T"/>
-                    <item value="U"/>
-                    <item value="V"/>
-                    <item value="W"/>
-                    <item value="X"/>
-                    <item value="Y"/>
-                    <item value="Z"/>
-                  </model>
+                  <model/>
                 </properties>
               </component>
             </children>
