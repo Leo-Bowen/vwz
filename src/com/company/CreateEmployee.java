@@ -12,12 +12,14 @@ public class CreateEmployee {
     private JPanel rootPanel;
     private JPanel secondPanel;
     private JButton saveButton;
+    private JTextField tf_id;
     private JTextField tf_firstname;
     private JTextField tf_lastname;
     private JTextField tf_birthdate;
     private JTextField tf_employmentdate;
     private JTextField tf_position;
     private JTextField tf_schedule;
+    private JLabel employeeIDLabel;
     private JLabel employeeFirstNameLabel;
     private JLabel employeeLastNameLabel;
     private JLabel employeeBirthdateLabel;
@@ -29,12 +31,13 @@ public class CreateEmployee {
     private EmployeeController employeeController;
 
     public CreateEmployee() {
+        employeeController = new EmployeeController();
+
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //send DATA
+
                 try {
-                    employeeController = new EmployeeController();
                     employeeController.addEmployee(tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()), Date.valueOf(tf_employmentdate.getText()), tf_position.getText(), tf_schedule.getText());
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();

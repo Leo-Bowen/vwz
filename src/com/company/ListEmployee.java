@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 public class ListEmployee {
     private JPanel rootPanel;
     private JButton returnButton;
-    private JPanel secondaryPanel;
+    private JPanel secondPanel;
     private JButton updateButton;
     private JTable employeeTable;
     private static JFrame frame;

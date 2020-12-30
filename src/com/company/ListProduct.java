@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class ListProduct {
     private JPanel rootPanel;
-    private JPanel secondaryPanel;
+    private JPanel secondPanel;
     private JButton updateButton;
     private JButton returnButton;
     private JTable productTable;

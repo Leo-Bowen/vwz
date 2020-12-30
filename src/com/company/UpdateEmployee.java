@@ -6,16 +6,18 @@ import java.awt.event.ActionListener;
 
 public class UpdateEmployee {
     private JPanel rootPanel;
-    private JPanel secondaryPanel;
+    private JPanel secondPanel;
     private JButton returnButton;
     private JButton deleteButton;
     private JButton saveButton;
+    private JTextField tf_id;
     private JTextField tf_firstname;
     private JTextField tf_lastname;
     private JTextField tf_birthdate;
     private JTextField tf_employmentdate;
     private JTextField tf_position;
     private JTextField tf_schedule;
+    private JLabel employeeIDLabel;
     private JLabel employeeFirstNameLabel;
     private JLabel employeeLastNameLabel;
     private JLabel employeeBirthdateLabel;

@@ -109,7 +109,7 @@ public class VWZDao {
     public int insertEmployeeData(Employee e) throws SQLException {
         //executeQuery() is used for SELECT sql operation
         //executeUpdate() is used for INSERT, UPDATE and DELETE sql operation.
-        preparedStatement = conn.prepareStatement("INSERT INTO employee_db (employee_firstname,employee_lastname,employee_birthdate,employee_entrydate,employee_position,employee_schedule) VALUES (?,?,?,?,?,?)");
+        preparedStatement = conn.prepareStatement("INSERT INTO employee_db (employee_id,employee_firstname,employee_lastname,employee_birthdate,employee_entrydate,employee_position,employee_schedule) VALUES (?,?,?,?,?,?)");
         preparedStatement.setString(1, e.getFirstname());
         preparedStatement.setString(2, e.getLastname());
         preparedStatement.setDate(3, e.getBirthdate());
