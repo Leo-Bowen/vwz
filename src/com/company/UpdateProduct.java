@@ -51,6 +51,7 @@ public class UpdateProduct {
                     }
 
                     ListProduct.main(new String[0]);
+                    frame.setVisible(false);
                 } else if (opt == JOptionPane.NO_OPTION) {
                     UpdateProduct.main(new String[0]);
                 }
@@ -65,6 +66,7 @@ public class UpdateProduct {
                 int opt = JOptionPane.showConfirmDialog(frame, "Are you sure you want to delete this Product?", "Warning", JOptionPane.YES_NO_OPTION);
                 frame.setVisible(false);
                 if (opt == JOptionPane.YES_OPTION) {
+
                     try {
                         productController.deleteProduct(ListProduct.selected_product.getId());
                     } catch (SQLException throwables) {
@@ -72,6 +74,7 @@ public class UpdateProduct {
                     } catch (ClassNotFoundException classNotFoundException) {
                         classNotFoundException.printStackTrace();
                     }
+
                     JOptionPane.showMessageDialog(frame, "Deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
                     ListProduct.main(new String[0]);
                 } else if (opt == JOptionPane.NO_OPTION) {

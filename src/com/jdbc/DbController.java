@@ -25,7 +25,7 @@ public class DbController {
         System.out.println("Connecting to database...");
         try {
             conn = DriverManager.getConnection(url, username, password);
-            System.out.println(conn.getClientInfo());
+            System.out.println(conn.getCatalog());
         } catch (Exception e) {
             System.err.println("Connection to database failed!");
             System.err.println("Try closing other sessions!");
