@@ -4,6 +4,7 @@ import com.models.Employee;
 import com.models.Product;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,7 +36,7 @@ public class VWZDao {
         conn = dbctrl.getConnection();
     }
 
-    public int insertProductData(Product p) throws SQLException {
+    public void insertProductData(Product p) throws SQLException {
         //executeQuery() is used for SELECT sql operation
         //executeUpdate() is used for INSERT, UPDATE and DELETE sql operation.
         preparedStatement = conn.prepareStatement("INSERT INTO product_db (product_name,product_quantity,product_entrydate) VALUES (?,?,?)");
@@ -46,10 +47,9 @@ public class VWZDao {
         preparedStatement.execute();
 
         preparedStatement.close();
-        return 0;
     }
 
-
+/*
     public int loadProduct(JList list) throws SQLException {
         DefaultListModel DLM = new DefaultListModel();
 
@@ -66,6 +66,39 @@ public class VWZDao {
         preparedStatement.close();
         return 0;
     }
+
+ */
+
+    public void loadProduct(JTable table) throws SQLException {
+        //set Table Layout
+        DefaultTableModel DTM = new DefaultTableModel();
+
+        DTM.addColumn("ID");
+        DTM.addColumn("Name");
+        DTM.addColumn("Quantity");
+        DTM.addColumn("Entry Date");
+
+        preparedStatement = conn.prepareStatement("SELECT * FROM product_db");
+        productset = preparedStatement.executeQuery();
+
+        while (productset.next()) {
+            DTM.addRow(new Object[]{
+                    productset.getInt("product_id"),
+                    productset.getString("product_name"),
+                    productset.getInt("product_quantity"),
+                    productset.getDate("product_entrydate")
+            });
+        }
+        table.setModel(DTM);
+        table.getColumn("ID").setPreferredWidth(50);
+        table.getColumn("Name").setPreferredWidth(450);
+        table.getColumn("Quantity").setPreferredWidth(100);
+        table.getColumn("Entry Date").setPreferredWidth(100);
+
+        productset.close();
+        preparedStatement.close();
+    }
+
 
     public int deleteProduct(int id) throws SQLException {
         preparedStatement = conn.prepareStatement("DELETE FROM product_db WHERE product_id=?");

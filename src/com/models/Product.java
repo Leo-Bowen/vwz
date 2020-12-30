@@ -14,9 +14,9 @@ public class Product {
     @Override
     public String toString() {
         return "id=" + id +
-                " name='" + name + '\'' +
-                " quantity=" + quantity +
-                " entrydate=" + entrydate;
+                ", name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", entrydate=" + entrydate;
     }
 
     public Product(String name, int quantity, Date date) {

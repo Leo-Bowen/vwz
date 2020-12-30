@@ -18,76 +18,36 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="bacd9" class="javax.swing.JLabel">
+          <component id="bacd9" class="javax.swing.JLabel" binding="productIDLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="ProductName"/>
+              <text value="Product ID"/>
             </properties>
           </component>
-          <component id="5ab30" class="javax.swing.JLabel">
+          <component id="5ab30" class="javax.swing.JLabel" binding="productNameLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="ProductID"/>
+              <text value="Product Name"/>
             </properties>
           </component>
-          <component id="638c5" class="javax.swing.JLabel">
+          <component id="638c5" class="javax.swing.JLabel" binding="productQuantityLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <text value="Description"/>
-            </properties>
-          </component>
-          <component id="50eb0" class="javax.swing.JTextArea" binding="maxiGlanzGeschirrspülmittelTextArea" default-binding="true">
-            <constraints>
-              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="MaxiGlanz Geschirrspülmittel"/>
-            </properties>
-          </component>
-          <component id="16262" class="javax.swing.JTextArea" binding="a00001TextArea" default-binding="true">
-            <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="00001"/>
-            </properties>
-          </component>
-          <component id="28bd9" class="javax.swing.JTextArea" binding="dishSoapTextArea" default-binding="true">
-            <constraints>
-              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="dish soap"/>
-            </properties>
-          </component>
-          <component id="a84db" class="javax.swing.JLabel">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Quantity"/>
             </properties>
           </component>
-          <component id="a3035" class="javax.swing.JTextArea" binding="a250TextArea1" default-binding="true">
+          <component id="a84db" class="javax.swing.JLabel" binding="productEntryDateLabel">
             <constraints>
-              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="250"/>
+              <text value="Date of Entry"/>
             </properties>
           </component>
           <component id="61c19" class="javax.swing.JButton" binding="saveAndCloseProductButton" default-binding="true">
@@ -105,6 +65,38 @@
             <properties>
               <text value="Delete Product"/>
             </properties>
+          </component>
+          <component id="663b6" class="javax.swing.JTextField" binding="tf_id">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="19304" class="javax.swing.JTextField" binding="tf_name">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="12da0" class="javax.swing.JTextField" binding="tf_quantity">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="2d2a4" class="javax.swing.JTextField" binding="tf_entrydate">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties/>
           </component>
         </children>
       </grid>

@@ -1,21 +1,36 @@
 package com.company;
 
+import com.models.Product;
+import com.models.ProductController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class UpdateProduct {
     private JPanel rootPanel;
-    private JButton saveAndCloseProductButton;
-    private JTextArea maxiGlanzGeschirrspülmittelTextArea;
-    private JTextArea a00001TextArea;
-    private JTextArea dishSoapTextArea;
-    private JTextArea a250TextArea1;
     private JPanel secondPanel;
+    private JButton saveAndCloseProductButton;
     private JButton deleteProductButton;
+    private JTextField tf_id;
+    private JTextField tf_name;
+    private JTextField tf_quantity;
+    private JTextField tf_entrydate;
+    private JLabel productIDLabel;
+    private JLabel productNameLabel;
+    private JLabel productQuantityLabel;
+    private JLabel productEntryDateLabel;
     private static JFrame frame;
 
     public UpdateProduct() {
+        ProductController productController = new ProductController();
+
+        //productController.loadProduct();
+        tf_id.setText("");
+        tf_name.setText("");
+        tf_quantity.setText("");
+        tf_entrydate.setText("");
+
         saveAndCloseProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,5 +60,9 @@ public class UpdateProduct {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

@@ -3,8 +3,10 @@ package com.models;
 import com.jdbc.VWZDao;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,12 +21,10 @@ public class ProductController {
         vwzDao.insertProductData(entryproduct);
     }
 
-
-    public JList loadProduct(JList list) throws ClassNotFoundException, SQLException {
+    public JTable loadProduct(JTable table) throws ClassNotFoundException, SQLException {
         vwzDao = new VWZDao();
-        vwzDao.loadProduct(list);
-
-        return list;
+        vwzDao.loadProduct(table);
+        return table;
     }
 
     public void updateProduct(int id){
