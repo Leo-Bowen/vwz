@@ -55,8 +55,6 @@ public class UpdateProduct {
                 } else if (opt == JOptionPane.NO_OPTION) {
                     UpdateProduct.main(new String[0]);
                 }
-                ListProduct.main(new String[0]);
-                frame.setVisible(false); //hides
             }
         });
 

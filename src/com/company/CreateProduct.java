@@ -33,12 +33,15 @@ public class CreateProduct {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
 
+                try {
                     productController.addProduct(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();
+                } catch (NumberFormatException err) {
+                    JOptionPane.showMessageDialog(frame, "Please enter all required information correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
+
                 Dashboard.main(new String[0]);
                 frame.setVisible(false); //hides
             }
