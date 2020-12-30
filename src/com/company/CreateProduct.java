@@ -1,6 +1,5 @@
 package com.company;
 
-import com.models.Product;
 import com.models.ProductController;
 
 import javax.swing.*;
@@ -8,12 +7,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.util.List;
 
 public class CreateProduct {
     private JPanel rootPanel;
     private JPanel secondPanel;
-    private JButton saveProductInformationButton;
+    private JButton saveButton;
     private JTextField tf_id;
     private JTextField tf_name;
     private JTextField tf_quantity;
@@ -22,24 +20,35 @@ public class CreateProduct {
     private JLabel productNameLabel;
     private JLabel productQuantityLabel;
     private JLabel productEntryDateLabel;
+    private JButton returnButton;
     private static JFrame frame;
 
-    private ProductController productController;
-
     public CreateProduct() {
-        saveProductInformationButton.addActionListener(new ActionListener() {
+        ProductController productController = new ProductController();
+
+        tf_id.setEditable(false);
+        tf_id.setText("ID will automatically be set by database");
+        tf_entrydate.setText(productController.getDate());
+
+        saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //send DATA
                 try {
-                    //Product product = new Product(3,"Apple",2, Date.valueOf("2020-12-03"));
-                    productController = new ProductController();
+
                     productController.addProduct(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();
                 }
                 Dashboard.main(new String[0]);
                 frame.setVisible(false); //hides
+            }
+        });
+
+        returnButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Dashboard.main(new String[0]);
+                frame.setVisible(false);
             }
         });
     }

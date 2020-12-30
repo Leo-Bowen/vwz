@@ -49,26 +49,6 @@ public class VWZDao {
         preparedStatement.close();
     }
 
-/*
-    public int loadProduct(JList list) throws SQLException {
-        DefaultListModel DLM = new DefaultListModel();
-
-        preparedStatement = conn.prepareStatement("SELECT * FROM product_db");
-        productset = preparedStatement.executeQuery();
-
-        while (productset.next()) {
-            Product product = new Product(productset.getInt("product_id"), productset.getString("product_name"), productset.getInt("product_quantity"), productset.getDate("product_entrydate"));
-            DLM.addElement(product);
-        }
-        list.setModel(DLM);
-
-        productset.close();
-        preparedStatement.close();
-        return 0;
-    }
-
- */
-
     public void loadProduct(JTable table) throws SQLException {
         //set Table Layout
         DefaultTableModel DTM = new DefaultTableModel();
@@ -99,13 +79,32 @@ public class VWZDao {
         preparedStatement.close();
     }
 
+    public void updateProduct(int id, Product p) throws SQLException {
+        preparedStatement = conn.prepareStatement("UPDATE product_db SET product_name=?,product_quantity=?,product_entrydate=? WHERE product_id=?");
 
-    public int deleteProduct(int id) throws SQLException {
+        preparedStatement.setString(1, p.getName());
+        preparedStatement.setInt(2, p.getQuantity());
+        preparedStatement.setDate(3, p.getEntrydate());
+        preparedStatement.setInt(4, id);
+
+        preparedStatement.execute();
+
+        preparedStatement.close();
+    }
+
+    public void deleteProduct(int id) throws SQLException {
         preparedStatement = conn.prepareStatement("DELETE FROM product_db WHERE product_id=?");
         preparedStatement.setInt(1, id);
-        int statusCode = preparedStatement.executeUpdate();
-        return statusCode;
+
+        preparedStatement.executeUpdate();
+
+        preparedStatement.close();
     }
+
+
+
+
+
 
     public int insertEmployeeData(Employee e) throws SQLException {
         //executeQuery() is used for SELECT sql operation
