@@ -7,14 +7,21 @@ import java.awt.event.ActionListener;
 public class UpdateEmployee {
     private JPanel rootPanel;
     private JPanel secondaryPanel;
-    private JTextArea textArea1;
-    private JTextArea textArea2;
-    private JTextArea textArea3;
-    private JTextArea textArea4;
-    private JTextArea textArea5;
-    private JButton saveAndCloseButton;
+    private JButton returnButton;
     private JButton deleteButton;
-    private JTextArea textArea6;
+    private JButton saveButton;
+    private JTextField tf_firstname;
+    private JTextField tf_lastname;
+    private JTextField tf_birthdate;
+    private JTextField tf_employmentdate;
+    private JTextField tf_position;
+    private JTextField tf_schedule;
+    private JLabel employeeFirstNameLabel;
+    private JLabel employeeLastNameLabel;
+    private JLabel employeeBirthdateLabel;
+    private JLabel employeeDateOfEmploymentLabel;
+    private JLabel employeePositionLabel;
+    private JLabel employeeScheduleLabel;
     private static JFrame frame;
 
     public UpdateEmployee() {
@@ -24,16 +31,16 @@ public class UpdateEmployee {
                 int opt = JOptionPane.showConfirmDialog(frame, "Are you sure you want to delete this employee?", "Warning", JOptionPane.YES_NO_OPTION);
                 frame.setVisible(false);
                 if (opt == JOptionPane.YES_OPTION) {
-                    ListEmployeeInfo.main(new String[0]);
+                    ListEmployee.main(new String[0]);
                 } else if (opt == JOptionPane.NO_OPTION){
                     UpdateEmployee.main(new String[0]);
                 }
             }
         });
-        saveAndCloseButton.addActionListener(new ActionListener() {
+        returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ListEmployeeInfo.main(new String[0]);
+                ListEmployee.main(new String[0]);
                 frame.setVisible(false);
             }
         });

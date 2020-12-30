@@ -28,7 +28,7 @@ public class Dashboard {
         editEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ListEmployeeInfo.main(new String[0]);
+                ListEmployee.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });
