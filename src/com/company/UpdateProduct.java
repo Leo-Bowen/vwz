@@ -48,6 +48,8 @@ public class UpdateProduct {
                         classNotFoundException.printStackTrace();
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
+                    } catch (IllegalArgumentException err) {
+                        JOptionPane.showMessageDialog(frame, "Please enter all required information correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
 
                     ListProduct.main(new String[0]);

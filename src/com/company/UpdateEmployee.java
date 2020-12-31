@@ -57,6 +57,8 @@ public class UpdateEmployee {
                         classNotFoundException.printStackTrace();
                     } catch (SQLException throwables) {
                         throwables.printStackTrace();
+                    } catch (IllegalArgumentException err) {
+                        JOptionPane.showMessageDialog(frame, "Please enter all required information correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
                     }
 
                     ListEmployee.main(new String[0]);
