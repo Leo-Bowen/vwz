@@ -38,12 +38,12 @@ public class CreateProduct {
                     productController.addProduct(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();
-                } catch (NumberFormatException err) {
+                } catch (IllegalArgumentException err) {
                     JOptionPane.showMessageDialog(frame, "Please enter all required information correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
 
                 Dashboard.main(new String[0]);
-                frame.setVisible(false); //hides
+                frame.dispose();
             }
         });
 
@@ -51,7 +51,7 @@ public class CreateProduct {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Dashboard.main(new String[0]);
-                frame.setVisible(false);
+                frame.dispose();
             }
         });
     }

@@ -9,19 +9,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 public class VWZDao {
     private DbController dbctrl;
     private PreparedStatement preparedStatement;
-    private ResultSet productset;
-    private List<Product> productlist = new ArrayList<>();
-    private ResultSet employeeset;
-    private List<Employee> employeelist = new ArrayList<>();
-    Connection conn;
-    private Product product;
+    private ResultSet resultSet;
+    private Connection conn;
 
     public VWZDao() throws ClassNotFoundException {
         init();
@@ -36,6 +30,12 @@ public class VWZDao {
         conn = dbctrl.getConnection();
     }
 
+    public void closeConnection() {
+        dbctrl.closeConnection();
+    }
+
+
+    //Product
     public void insertProductData(Product p) throws SQLException {
         //executeQuery() is used for SELECT sql operation
         //executeUpdate() is used for INSERT, UPDATE and DELETE sql operation.
@@ -59,14 +59,14 @@ public class VWZDao {
         DTM.addColumn("Entry Date");
 
         preparedStatement = conn.prepareStatement("SELECT * FROM product_db");
-        productset = preparedStatement.executeQuery();
+        resultSet = preparedStatement.executeQuery();
 
-        while (productset.next()) {
+        while (resultSet.next()) {
             DTM.addRow(new Object[]{
-                    productset.getInt("product_id"),
-                    productset.getString("product_name"),
-                    productset.getInt("product_quantity"),
-                    productset.getDate("product_entrydate")
+                    resultSet.getInt("product_id"),
+                    resultSet.getString("product_name"),
+                    resultSet.getInt("product_quantity"),
+                    resultSet.getDate("product_entrydate")
             });
         }
         table.setModel(DTM);
@@ -75,7 +75,7 @@ public class VWZDao {
         table.getColumn("Quantity").setPreferredWidth(100);
         table.getColumn("Entry Date").setPreferredWidth(100);
 
-        productset.close();
+        resultSet.close();
         preparedStatement.close();
     }
 
@@ -102,14 +102,11 @@ public class VWZDao {
     }
 
 
-
-
-
-
-    public int insertEmployeeData(Employee e) throws SQLException {
+    //Employee
+    public void insertEmployeeData(Employee e) throws SQLException {
         //executeQuery() is used for SELECT sql operation
         //executeUpdate() is used for INSERT, UPDATE and DELETE sql operation.
-        preparedStatement = conn.prepareStatement("INSERT INTO employee_db (employee_id,employee_firstname,employee_lastname,employee_birthdate,employee_entrydate,employee_position,employee_schedule) VALUES (?,?,?,?,?,?)");
+        preparedStatement = conn.prepareStatement("INSERT INTO employee_db (employee_firstname,employee_lastname,employee_birthdate,employee_entrydate,employee_position,employee_schedule) VALUES (?,?,?,?,?,?)");
         preparedStatement.setString(1, e.getFirstname());
         preparedStatement.setString(2, e.getLastname());
         preparedStatement.setDate(3, e.getBirthdate());
@@ -119,26 +116,64 @@ public class VWZDao {
 
         preparedStatement.execute();
 
-        return 0;
+        preparedStatement.close();
     }
 
-    public List<Employee> loadEmployee() throws SQLException {
+    public void loadEmployee(JTable table) throws SQLException {
+        //set Table Layout
+        DefaultTableModel DTM = new DefaultTableModel();
+
+        DTM.addColumn("ID");
+        DTM.addColumn("First Name");
+        DTM.addColumn("Last Name");
+        DTM.addColumn("Birthdate");
+        DTM.addColumn("Entry Date");
+        DTM.addColumn("Position");
+        DTM.addColumn("Schedule");
+
         preparedStatement = conn.prepareStatement("SELECT * FROM employee_db");
-        employeeset = preparedStatement.executeQuery();
+        resultSet = preparedStatement.executeQuery();
 
-
-        while (employeeset.next()) {
-            Employee employee = new Employee(employeeset.getInt("employee_id"), employeeset.getString("employee_firstname"), employeeset.getString("employee_lastname"), employeeset.getDate("employee_birthdate"), employeeset.getDate("employee_entrydate"), employeeset.getString("employee_position"), employeeset.getString("employee_schedule"));
-            employeelist.add(employee);
-
+        while (resultSet.next()) {
+            DTM.addRow(new Object[]{
+                    resultSet.getInt("employee_id"),
+                    resultSet.getString("employee_firstname"),
+                    resultSet.getString("employee_lastname"),
+                    resultSet.getDate("employee_birthdate"),
+                    resultSet.getDate("employee_entrydate"),
+                    resultSet.getString("employee_position"),
+                    resultSet.getString("employee_schedule")
+            });
         }
+        table.setModel(DTM);
+        table.getColumn("ID").setPreferredWidth(50);
 
-        return employeelist;
+        resultSet.close();
+        preparedStatement.close();
     }
 
-    public void closeConnection() {
-        dbctrl.closeConnection();
+    public void updateEmployee(int id, Employee e) throws SQLException {
+        preparedStatement = conn.prepareStatement("UPDATE employee_db SET employee_firstname=?,employee_lastname=?,employee_birthdate=?,employee_entrydate=?,employee_position=?,employee_schedule=? WHERE employee_id=?");
+
+        preparedStatement.setString(1, e.getFirstname());
+        preparedStatement.setString(2, e.getLastname());
+        preparedStatement.setDate(3, e.getBirthdate());
+        preparedStatement.setDate(4, e.getEntrydate());
+        preparedStatement.setString(5, e.getPosition());
+        preparedStatement.setString(6, e.getSchedule());
+        preparedStatement.setInt(7, id);
+
+        preparedStatement.execute();
+
+        preparedStatement.close();
     }
 
+    public void deleteEmployee(int id) throws SQLException {
+        preparedStatement = conn.prepareStatement("DELETE FROM employee_db WHERE employee_id=?");
+        preparedStatement.setInt(1, id);
 
+        preparedStatement.executeUpdate();
+
+        preparedStatement.close();
+    }
 }

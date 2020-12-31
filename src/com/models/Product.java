@@ -11,14 +11,6 @@ public class Product {
 
     private Date entrydate;
 
-    @Override
-    public String toString() {
-        return "id=" + id +
-                ", name='" + name + '\'' +
-                ", quantity=" + quantity +
-                ", entrydate=" + entrydate;
-    }
-
     public Product(String name, int quantity, Date date) {
         this.name = name;
         this.quantity = quantity;

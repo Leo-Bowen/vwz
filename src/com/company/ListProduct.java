@@ -34,7 +34,7 @@ public class ListProduct {
             public void actionPerformed(ActionEvent e) {
                 int row = productTable.getSelectedRow();
                 if (row == -1) {
-                    JOptionPane.showMessageDialog(frame, "Choose a product first!", "Warning", JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "Select a product first!", "Warning", JOptionPane.WARNING_MESSAGE);
                 } else {
                     selected_product = new Product(
                             Integer.parseInt(productTable.getModel().getValueAt(row, 0).toString()),
@@ -42,7 +42,7 @@ public class ListProduct {
                             Integer.parseInt(productTable.getModel().getValueAt(row, 2).toString()),
                             Date.valueOf(productTable.getModel().getValueAt(row, 3).toString()));
                     UpdateProduct.main(new String[0]);
-                    frame.setVisible(false);
+                    frame.dispose();
                 }
             }
         });
@@ -51,7 +51,7 @@ public class ListProduct {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Dashboard.main(new String[0]);
-                frame.setVisible(false);
+                frame.dispose();
             }
         });
     }

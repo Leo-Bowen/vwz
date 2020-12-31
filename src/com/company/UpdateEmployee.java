@@ -1,8 +1,12 @@
 package com.company;
 
+import com.models.EmployeeController;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Date;
+import java.sql.SQLException;
 
 public class UpdateEmployee {
     private JPanel rootPanel;
@@ -27,23 +31,71 @@ public class UpdateEmployee {
     private static JFrame frame;
 
     public UpdateEmployee() {
-        deleteButton.addActionListener(new ActionListener() {
+        EmployeeController employeeController = new EmployeeController();
+
+        tf_id.setEditable(false);
+        tf_id.setText(String.valueOf(ListEmployee.selected_employee.getId()));
+        tf_firstname.setText(ListEmployee.selected_employee.getFirstname());
+        tf_lastname.setText(ListEmployee.selected_employee.getLastname());
+        tf_birthdate.setText(String.valueOf(ListEmployee.selected_employee.getBirthdate()));
+        tf_employmentdate.setText(String.valueOf(ListEmployee.selected_employee.getEntrydate()));
+        tf_position.setText(ListEmployee.selected_employee.getPosition());
+        tf_schedule.setText(ListEmployee.selected_employee.getSchedule());
+
+
+        saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int opt = JOptionPane.showConfirmDialog(frame, "Are you sure you want to delete this employee?", "Warning", JOptionPane.YES_NO_OPTION);
-                frame.setVisible(false);
+
+                int opt = JOptionPane.showConfirmDialog(frame, "Are you sure you want to save edit?", "Warning", JOptionPane.YES_NO_OPTION);
+                frame.dispose();
                 if (opt == JOptionPane.YES_OPTION) {
+
+                    try {
+                        employeeController.updateEmployee(ListEmployee.selected_employee.getId(), tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()),Date.valueOf(tf_employmentdate.getText()),tf_position.getText(),tf_schedule.getText());
+                    } catch (ClassNotFoundException classNotFoundException) {
+                        classNotFoundException.printStackTrace();
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    }
+
                     ListEmployee.main(new String[0]);
-                } else if (opt == JOptionPane.NO_OPTION){
+                    frame.dispose();
+                } else if (opt == JOptionPane.NO_OPTION) {
                     UpdateEmployee.main(new String[0]);
                 }
             }
         });
+
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opt = JOptionPane.showConfirmDialog(frame, "Are you sure you want to remove this Employee?", "Warning", JOptionPane.YES_NO_OPTION);
+                frame.dispose();
+                if (opt == JOptionPane.YES_OPTION) {
+
+                    try {
+                        employeeController.deleteEmployee(ListEmployee.selected_employee.getId());
+                    } catch (SQLException throwables) {
+                        throwables.printStackTrace();
+                    } catch (ClassNotFoundException classNotFoundException) {
+                        classNotFoundException.printStackTrace();
+                    }
+
+                    JOptionPane.showMessageDialog(frame, "Deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
+                    ListEmployee.main(new String[0]);
+                } else if (opt == JOptionPane.NO_OPTION) {
+                    UpdateEmployee.main(new String[0]);
+                }
+            }
+        });
+
+
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ListEmployee.main(new String[0]);
-                frame.setVisible(false);
+                frame.dispose();
             }
         });
     }

@@ -33,6 +33,10 @@ public class CreateEmployee {
     public CreateEmployee() {
         employeeController = new EmployeeController();
 
+        tf_id.setEditable(false);
+        tf_id.setText("ID will automatically be set by database");
+        tf_employmentdate.setText(employeeController.getDate());
+
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -41,17 +45,20 @@ public class CreateEmployee {
                     employeeController.addEmployee(tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()), Date.valueOf(tf_employmentdate.getText()), tf_position.getText(), tf_schedule.getText());
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();
+                } catch (IllegalArgumentException err) {
+                    JOptionPane.showMessageDialog(frame, "Please enter all required information correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
+
                 Dashboard.main(new String[0]);
-                //frame.setVisible(false); //hides
-                frame.dispose(); //deletes
+                frame.dispose();
             }
         });
+
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Dashboard.main(new String[0]);
-                frame.setVisible(false);
+                frame.dispose();
             }
         });
     }
