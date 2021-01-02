@@ -26,6 +26,11 @@ public class ProductController {
         vwzDao.loadProduct(table);
     }
 
+    public void searchProduct(JTable table, String searchinput) throws ClassNotFoundException, SQLException {
+        vwzDao = new VWZDao();
+        vwzDao.searchProduct(table, searchinput);
+    }
+
     public void updateProduct(int id, String name, int quantity, Date date) throws ClassNotFoundException, SQLException {
         vwzDao = new VWZDao();
         Product entryproduct = new Product(name, quantity, date);

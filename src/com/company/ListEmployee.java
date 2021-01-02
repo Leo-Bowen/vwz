@@ -6,8 +6,12 @@ import com.models.EmployeeController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.util.regex.PatternSyntaxException;
 
 public class ListEmployee {
     private JPanel rootPanel;
@@ -15,6 +19,7 @@ public class ListEmployee {
     private JPanel secondPanel;
     private JButton updateButton;
     private JTable employeeTable;
+    private JTextField tf_search;
     private static JFrame frame;
 
     public static Employee selected_employee;
@@ -25,9 +30,26 @@ public class ListEmployee {
         try {
             employeeController.loadEmployee(employeeTable);
             employeeTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
+
+        tf_search.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent event) {
+                if(event.getKeyCode() == KeyEvent.VK_ENTER){
+                    try {
+                        employeeController.searchEmployee(employeeTable, tf_search.getText());
+                    } catch (ClassNotFoundException | SQLException Exception) {
+                        Exception.printStackTrace();
+                    } catch (PatternSyntaxException patternSyntaxException){
+                        JOptionPane.showMessageDialog(frame, "Please enter valid Syntax!", "Warning", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
+
+            }
+        });
 
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -57,6 +79,7 @@ public class ListEmployee {
                 frame.dispose();
             }
         });
+
     }
 
     public static void main(String[] args) {

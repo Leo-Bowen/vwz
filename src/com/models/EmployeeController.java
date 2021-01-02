@@ -26,6 +26,11 @@ public class EmployeeController {
         vwzDao.loadEmployee(table);
     }
 
+    public void searchEmployee(JTable table, String searchinput) throws ClassNotFoundException, SQLException {
+        vwzDao = new VWZDao();
+        vwzDao.searchEmployee(table, searchinput);
+    }
+
     public void updateEmployee(int id, String firstname, String lastname, Date birthdate, Date entrydate, String position, String schedule) throws ClassNotFoundException, SQLException {
         vwzDao = new VWZDao();
         Employee entryemployee = new Employee(firstname, lastname, birthdate, entrydate, position, schedule);

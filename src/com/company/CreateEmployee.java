@@ -43,14 +43,14 @@ public class CreateEmployee {
 
                 try {
                     employeeController.addEmployee(tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()), Date.valueOf(tf_employmentdate.getText()), tf_position.getText(), tf_schedule.getText());
+                    Dashboard.main(new String[0]);
+                    frame.dispose();
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();
                 } catch (IllegalArgumentException err) {
                     JOptionPane.showMessageDialog(frame, "Please enter all required information correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
 
-                Dashboard.main(new String[0]);
-                frame.dispose();
             }
         });
 

@@ -5,6 +5,9 @@ import com.models.ProductController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.sql.SQLException;
 
@@ -36,14 +39,13 @@ public class CreateProduct {
 
                 try {
                     productController.addProduct(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
+                    Dashboard.main(new String[0]);
+                    frame.dispose();
                 } catch (ClassNotFoundException | SQLException err) {
                     err.printStackTrace();
                 } catch (IllegalArgumentException err) {
                     JOptionPane.showMessageDialog(frame, "Please enter all required information correctly!", "Warning", JOptionPane.WARNING_MESSAGE);
                 }
-
-                Dashboard.main(new String[0]);
-                frame.dispose();
             }
         });
 

@@ -5,6 +5,7 @@ import com.models.Product;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,8 @@ public class VWZDao {
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
     private Connection conn;
+    private DefaultTableModel DTM = new DefaultTableModel();
+    TableRowSorter<DefaultTableModel> TRS = new TableRowSorter<>(DTM);
 
     public VWZDao() throws ClassNotFoundException {
         init();
@@ -51,7 +54,6 @@ public class VWZDao {
 
     public void loadProduct(JTable table) throws SQLException {
         //set Table Layout
-        DefaultTableModel DTM = new DefaultTableModel();
 
         DTM.addColumn("ID");
         DTM.addColumn("Name");
@@ -77,6 +79,12 @@ public class VWZDao {
 
         resultSet.close();
         preparedStatement.close();
+    }
+
+    public void searchProduct(JTable table, String query) throws SQLException {
+        loadProduct(table);
+        table.setRowSorter(TRS);
+        TRS.setRowFilter(RowFilter.regexFilter("(?i)"+query)); //(?i) = case-insensitiv
     }
 
     public void updateProduct(int id, Product p) throws SQLException {
@@ -121,7 +129,6 @@ public class VWZDao {
 
     public void loadEmployee(JTable table) throws SQLException {
         //set Table Layout
-        DefaultTableModel DTM = new DefaultTableModel();
 
         DTM.addColumn("ID");
         DTM.addColumn("First Name");
@@ -146,10 +153,16 @@ public class VWZDao {
             });
         }
         table.setModel(DTM);
-        table.getColumn("ID").setPreferredWidth(50);
+        table.getColumn("ID").setPreferredWidth(20);
 
         resultSet.close();
         preparedStatement.close();
+    }
+
+    public void searchEmployee(JTable table, String query) throws SQLException {
+        loadEmployee(table);
+        table.setRowSorter(TRS);
+        TRS.setRowFilter(RowFilter.regexFilter("(?i)"+query)); //(?i) = case-insensitiv
     }
 
     public void updateEmployee(int id, Employee e) throws SQLException {
