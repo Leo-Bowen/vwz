@@ -6,10 +6,10 @@ import java.awt.event.ActionListener;
 
 public class Dashboard {
     private JPanel rootPanel;
-    private JButton editOrderingsButton;
+    private JButton editOrderButton;
     private JLabel helloLabel;
     private JPanel secondaryPanel;
-    private JButton orderProductsButton;
+    private JButton addOrderButton;
     private JButton editProductButton;
     private JButton addProductButton;
     private JButton editEmployeeButton;
@@ -46,14 +46,14 @@ public class Dashboard {
                 frame.setVisible(false); //hides
             }
         });
-        orderProductsButton.addActionListener(new ActionListener() {
+        addOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                OrderingProducts.main(new String[0]);
+                CreateOrder.main(new String[0]);
                 frame.setVisible(false); //hides
             }
         });
-        editOrderingsButton.addActionListener(new ActionListener() {
+        editOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //FEHLT

@@ -39,20 +39,4 @@ public class Product {
     public Date getEntrydate() {
         return entrydate;
     }
-
-    public void setId() {
-        this.id = id;
-    }
-
-    public void setName() {
-        this.name = name;
-    }
-
-    public void setQuantity() {
-        this.quantity = quantity;
-    }
-
-    public void setDate() {
-        this.entrydate = entrydate;
-    }
 }

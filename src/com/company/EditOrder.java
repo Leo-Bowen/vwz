@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class EditOrderings {
+public class EditOrder {
     private JPanel panel1;
     private JTextArea originalProductMaxiglanzGeschirrspülmittelTextArea;
     private JTextArea a0001TextArea;
@@ -13,7 +13,7 @@ public class EditOrderings {
     private JButton saveAndCloseOrderButton;
     private JPanel secondaryPanel;
 
-    public EditOrderings() {
+    public EditOrder() {
         saveAndCloseOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -24,7 +24,7 @@ public class EditOrderings {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("EditOrderings");
-        frame.setContentPane(new EditOrderings().panel1);
+        frame.setContentPane(new EditOrder().panel1);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);

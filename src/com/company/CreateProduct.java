@@ -5,9 +5,6 @@ import com.models.ProductController;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
 import java.sql.SQLException;
 
@@ -19,10 +16,6 @@ public class CreateProduct {
     private JTextField tf_name;
     private JTextField tf_quantity;
     private JTextField tf_entrydate;
-    private JLabel productIDLabel;
-    private JLabel productNameLabel;
-    private JLabel productQuantityLabel;
-    private JLabel productEntryDateLabel;
     private JButton returnButton;
     private static JFrame frame;
 

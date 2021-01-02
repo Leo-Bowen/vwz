@@ -4,18 +4,21 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class OrderingProducts {
+public class CreateOrder {
     private JPanel rootPanel;
-    private JButton saveAndSendOrderButton;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
     private JPanel secondPanel;
+    private JButton returnButton;
+    private JButton saveButton;
+    private JTextField tf_id;
+    private JTextField tf_name;
+    private JTextField tf_quantity;
+    private JTextField tf_orderdate;
+    private JTextField tf_url;
+    private JCheckBox status_checkbox;
     private static JFrame frame;
 
-    public OrderingProducts() {
-        saveAndSendOrderButton.addActionListener(new ActionListener() {
+    public CreateOrder() {
+        saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //send DATA
@@ -26,8 +29,8 @@ public class OrderingProducts {
     }
 
     public static void main(String[] args) {
-        frame = new JFrame("OrderingProducts");
-        frame.setContentPane(new OrderingProducts().rootPanel);
+        frame = new JFrame("Create Orders");
+        frame.setContentPane(new CreateOrder().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();

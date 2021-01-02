@@ -18,7 +18,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="82246" class="javax.swing.JLabel" binding="employeeFirstNameLabel">
+          <component id="82246" class="javax.swing.JLabel">
             <constraints>
               <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="112" height="16"/>
@@ -28,7 +28,7 @@
               <text value="First Name"/>
             </properties>
           </component>
-          <component id="cd914" class="javax.swing.JLabel" binding="employeeDateOfEmploymentLabel">
+          <component id="cd914" class="javax.swing.JLabel">
             <constraints>
               <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="112" height="16"/>
@@ -38,7 +38,7 @@
               <text value="Date of Employment"/>
             </properties>
           </component>
-          <component id="e476a" class="javax.swing.JLabel" binding="employeePositionLabel">
+          <component id="e476a" class="javax.swing.JLabel">
             <constraints>
               <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="112" height="16"/>
@@ -78,7 +78,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="58795" class="javax.swing.JLabel" binding="employeeBirthdateLabel">
+          <component id="58795" class="javax.swing.JLabel">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="112" height="16"/>
@@ -96,7 +96,7 @@
             </constraints>
             <properties/>
           </component>
-          <component id="c70b8" class="javax.swing.JLabel" binding="employeeScheduleLabel">
+          <component id="c70b8" class="javax.swing.JLabel">
             <constraints>
               <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -114,7 +114,7 @@
               <text value=""/>
             </properties>
           </component>
-          <component id="5244" class="javax.swing.JLabel" binding="employeeLastNameLabel">
+          <component id="5244" class="javax.swing.JLabel">
             <constraints>
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -148,7 +148,7 @@
               <text value="Return"/>
             </properties>
           </component>
-          <component id="22e96" class="javax.swing.JLabel" binding="employeeIDLabel">
+          <component id="22e96" class="javax.swing.JLabel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>

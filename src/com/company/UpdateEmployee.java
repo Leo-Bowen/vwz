@@ -21,13 +21,6 @@ public class UpdateEmployee {
     private JTextField tf_employmentdate;
     private JTextField tf_position;
     private JTextField tf_schedule;
-    private JLabel employeeIDLabel;
-    private JLabel employeeFirstNameLabel;
-    private JLabel employeeLastNameLabel;
-    private JLabel employeeBirthdateLabel;
-    private JLabel employeeDateOfEmploymentLabel;
-    private JLabel employeePositionLabel;
-    private JLabel employeeScheduleLabel;
     private static JFrame frame;
 
     public UpdateEmployee() {

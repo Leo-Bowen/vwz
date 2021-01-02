@@ -17,10 +17,6 @@ public class UpdateProduct {
     private JTextField tf_name;
     private JTextField tf_quantity;
     private JTextField tf_entrydate;
-    private JLabel productIDLabel;
-    private JLabel productNameLabel;
-    private JLabel productQuantityLabel;
-    private JLabel productEntryDateLabel;
     private JButton returnButton;
     private static JFrame frame;
 
