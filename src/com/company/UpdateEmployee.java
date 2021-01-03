@@ -88,7 +88,6 @@ public class UpdateEmployee {
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ListEmployee.main(new String[0]);
                 frame.dispose();
             }
         });

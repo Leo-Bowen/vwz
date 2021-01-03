@@ -76,7 +76,6 @@ public class UpdateOrder {
                 frame.dispose();
             }
         });
-
     }
 
     public static void main(String[] args) {
