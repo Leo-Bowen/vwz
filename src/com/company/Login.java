@@ -18,6 +18,7 @@ public class Login extends JFrame{
     private JPanel rootPanel;
     private JLabel VWZ;
     private String username = "admin";
+    private String username2 = "user";
     private String password = "4f8996da763b7a969b1028ee3007569eaf3a635486ddab211d512c85b9df8fb"; //user
     private static JFrame frame;
 
@@ -49,11 +50,13 @@ public class Login extends JFrame{
 
     public void credentials() throws NoSuchAlgorithmException{
         String s = new String(tf_password.getPassword()); //Arrays.equals(password.toCharArray(), passwordField1.getPassword())
-            if(tf_username.getText().equals(username) && password.equals(toHexString(getSHA(s)))){
-
-                Dashboard.main(new String[0]);
-                //frame.setVisible(false); //hides
-                frame.dispose(); //deletes
+        //as user
+        if((tf_username.getText().equals(username2)) && password.equals(toHexString(getSHA(s)))){
+            Dashboard.main(new String[]{username2});
+            frame.dispose();
+        } else if ((tf_username.getText().equals(username)) && password.equals(toHexString(getSHA(s)))){
+            Dashboard.main(new String[]{username});
+            frame.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Wrong Password or Username");
             }

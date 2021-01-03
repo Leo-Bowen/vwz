@@ -14,12 +14,15 @@ public class Dashboard {
     private JButton addEmployeeButton;
     private JButton logOutButton;
     private JLabel VWZ;
+    private static String mode;
     private static JFrame frame;
+    private static int count = 0;
 
     public Dashboard() {
         addEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (checkMode()) return;
                 CreateEmployee.main(new String[0]);
                 frame.setVisible(false); //hides
             }
@@ -27,6 +30,7 @@ public class Dashboard {
         editEmployeeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (checkMode()) return;
                 ListEmployee.main(new String[0]);
                 frame.setVisible(false); //hides
             }
@@ -34,6 +38,7 @@ public class Dashboard {
         addProductButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (checkMode()) return;
                 CreateProduct.main(new String[0]);
                 frame.setVisible(false); //hides
             }
@@ -73,6 +78,10 @@ public class Dashboard {
     }
 
     public static void main(String[] args) {
+        if (count < 1){
+            mode = args[0];
+            count++;
+        }
         frame = new JFrame("VWZ");
         frame.setContentPane(new Dashboard().rootPanel);
         frame.setLocationRelativeTo(null);
@@ -86,5 +95,13 @@ public class Dashboard {
 
     private void createUIComponents() {
         VWZ = new JLabel(new ImageIcon("VWZ.png"));
+    }
+
+    private boolean checkMode(){
+        if (this.mode.equals("user")){
+            JOptionPane.showMessageDialog(frame,"You are not logged in as admin!");
+            return true;
+        }
+        return false;
     }
 }
