@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public class UpdateProduct {
     private JPanel rootPanel;
-    private JPanel secondPanel;
     private JButton saveButton;
     private JButton deleteButton;
     private JTextField tf_id;
@@ -29,6 +28,7 @@ public class UpdateProduct {
         tf_name.setText(ListProduct.selected_product.getName());
         tf_quantity.setText(String.valueOf(ListProduct.selected_product.getQuantity()));
         tf_entrydate.setText(String.valueOf(ListProduct.selected_product.getEntrydate()));
+        
 
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -89,15 +89,11 @@ public class UpdateProduct {
     }
 
     public static void main(String[] args) {
-        frame = new JFrame("SeeProductStock");
+        frame = new JFrame("Update Product");
         frame.setContentPane(new UpdateProduct().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
     }
 }

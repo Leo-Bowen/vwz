@@ -78,7 +78,6 @@ public class UpdateEmployee {
                     }
 
                     JOptionPane.showMessageDialog(frame, "Deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
-                    ListEmployee.main(new String[0]);
                 } else if (opt == JOptionPane.NO_OPTION) {
                     UpdateEmployee.main(new String[0]);
                 }
@@ -96,7 +95,7 @@ public class UpdateEmployee {
     }
 
     public static void main(String[] args) {
-        frame = new JFrame("UpdateEmployee");
+        frame = new JFrame("Update Employee");
         frame.setContentPane(new UpdateEmployee().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -56,7 +56,8 @@ public class Dashboard {
         editOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //FEHLT
+                ListOrder.main(new String[0]);
+                frame.setVisible(false); //hides
             }
         });
         logOutButton.addActionListener(new ActionListener() { //basic logout

@@ -23,23 +23,23 @@ public class ProductController {
 
     public void loadProduct(JTable table) throws ClassNotFoundException, SQLException {
         vwzDao = new VWZDao();
-        vwzDao.loadProduct(table);
+        vwzDao.loadProductData(table);
     }
 
     public void searchProduct(JTable table, String searchinput) throws ClassNotFoundException, SQLException {
         vwzDao = new VWZDao();
-        vwzDao.searchProduct(table, searchinput);
+        vwzDao.searchProductData(table, searchinput);
     }
 
     public void updateProduct(int id, String name, int quantity, Date date) throws ClassNotFoundException, SQLException {
         vwzDao = new VWZDao();
         Product entryproduct = new Product(name, quantity, date);
-        vwzDao.updateProduct(id,entryproduct);
+        vwzDao.updateProductData(id,entryproduct);
     }
 
     public void deleteProduct(int id) throws SQLException, ClassNotFoundException {
         vwzDao = new VWZDao();
-        vwzDao.deleteProduct(id);
+        vwzDao.deleteProductData(id);
     }
 
 

@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public class CreateEmployee {
     private JPanel rootPanel;
-    private JPanel secondPanel;
     private JButton saveButton;
     private JTextField tf_id;
     private JTextField tf_firstname;
@@ -36,6 +35,7 @@ public class CreateEmployee {
 
                 try {
                     employeeController.addEmployee(tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()), Date.valueOf(tf_employmentdate.getText()), tf_position.getText(), tf_schedule.getText());
+                    JOptionPane.showMessageDialog(frame, "Saved Successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
                     Dashboard.main(new String[0]);
                     frame.dispose();
                 } catch (ClassNotFoundException | SQLException err) {

@@ -10,7 +10,6 @@ import java.sql.SQLException;
 
 public class CreateProduct {
     private JPanel rootPanel;
-    private JPanel secondPanel;
     private JButton saveButton;
     private JTextField tf_id;
     private JTextField tf_name;
@@ -32,6 +31,7 @@ public class CreateProduct {
 
                 try {
                     productController.addProduct(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
+                    JOptionPane.showMessageDialog(frame, "Saved Successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
                     Dashboard.main(new String[0]);
                     frame.dispose();
                 } catch (ClassNotFoundException | SQLException err) {

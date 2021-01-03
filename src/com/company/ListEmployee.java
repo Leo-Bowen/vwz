@@ -16,7 +16,6 @@ import java.util.regex.PatternSyntaxException;
 public class ListEmployee {
     private JPanel rootPanel;
     private JButton returnButton;
-    private JPanel secondPanel;
     private JButton updateButton;
     private JTable employeeTable;
     private JTextField tf_search;
@@ -67,7 +66,6 @@ public class ListEmployee {
                             employeeTable.getModel().getValueAt(row, 5).toString(),
                             employeeTable.getModel().getValueAt(row, 6).toString());
                     UpdateEmployee.main(new String[0]);
-                    frame.dispose();
                 }
             }
         });
@@ -83,7 +81,7 @@ public class ListEmployee {
     }
 
     public static void main(String[] args) {
-        frame = new JFrame("UpdateEmployeeInfo");
+        frame = new JFrame("Employee List");
         frame.setContentPane(new ListEmployee().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
