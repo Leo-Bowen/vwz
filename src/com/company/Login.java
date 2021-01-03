@@ -95,8 +95,7 @@ public class Login extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        ImageIcon img = new ImageIcon("VWZ_icon.png");
-        frame.setIconImage(img.getImage());
+        ImageIcon img = new ImageIcon("VWZ_icon.png");frame.setIconImage(img.getImage());
         DbController.getInstance();
     }
 
