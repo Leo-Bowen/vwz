@@ -299,10 +299,9 @@ public class VWZDao {
         preparedStatement.close();
     }
 
-    public void deleteOrderData(int id) throws SQLException {
-        //TODO delete after certain amount of time from statuscheck
-        preparedStatement = conn.prepareStatement("DELETE FROM order_db WHERE order_id=?");
-        preparedStatement.setInt(1, id);
+    public void deleteOrderData() throws SQLException {
+        preparedStatement = conn.prepareStatement("DELETE FROM order_db WHERE order_status=?");
+        preparedStatement.setBoolean(1, true); //delete all where status is true
 
         preparedStatement.executeUpdate();
 

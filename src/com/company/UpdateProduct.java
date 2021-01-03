@@ -1,5 +1,6 @@
 package com.company;
 
+import com.models.Product;
 import com.models.ProductController;
 
 import javax.swing.*;
@@ -19,15 +20,17 @@ public class UpdateProduct {
     private JButton returnButton;
     private static JFrame frame;
 
+    private Product selected_product = ListProduct.selected_product;
+
     public UpdateProduct() {
         ProductController productController = new ProductController();
 
         //Take ID and information from listproduct
         tf_id.setEditable(false);
-        tf_id.setText(String.valueOf(ListProduct.selected_product.getId()));
-        tf_name.setText(ListProduct.selected_product.getName());
-        tf_quantity.setText(String.valueOf(ListProduct.selected_product.getQuantity()));
-        tf_entrydate.setText(String.valueOf(ListProduct.selected_product.getEntrydate()));
+        tf_id.setText(String.valueOf(selected_product.getId()));
+        tf_name.setText(selected_product.getName());
+        tf_quantity.setText(String.valueOf(selected_product.getQuantity()));
+        tf_entrydate.setText(String.valueOf(selected_product.getEntrydate()));
         
 
         saveButton.addActionListener(new ActionListener() {
@@ -39,7 +42,7 @@ public class UpdateProduct {
                 if (opt == JOptionPane.YES_OPTION) {
 
                     try {
-                        productController.updateProduct(ListProduct.selected_product.getId(), tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
+                        productController.updateProduct(selected_product.getId(), tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_entrydate.getText()));
                     } catch (ClassNotFoundException classNotFoundException) {
                         classNotFoundException.printStackTrace();
                     } catch (SQLException throwables) {

@@ -1,5 +1,6 @@
 package com.company;
 
+import com.models.Employee;
 import com.models.EmployeeController;
 
 import javax.swing.*;
@@ -23,17 +24,18 @@ public class UpdateEmployee {
     private JTextField tf_schedule;
     private static JFrame frame;
 
+    private Employee selected_employee = ListEmployee.selected_employee;
     public UpdateEmployee() {
         EmployeeController employeeController = new EmployeeController();
 
         tf_id.setEditable(false);
-        tf_id.setText(String.valueOf(ListEmployee.selected_employee.getId()));
-        tf_firstname.setText(ListEmployee.selected_employee.getFirstname());
-        tf_lastname.setText(ListEmployee.selected_employee.getLastname());
-        tf_birthdate.setText(String.valueOf(ListEmployee.selected_employee.getBirthdate()));
-        tf_employmentdate.setText(String.valueOf(ListEmployee.selected_employee.getEntrydate()));
-        tf_position.setText(ListEmployee.selected_employee.getPosition());
-        tf_schedule.setText(ListEmployee.selected_employee.getSchedule());
+        tf_id.setText(String.valueOf(selected_employee.getId()));
+        tf_firstname.setText(selected_employee.getFirstname());
+        tf_lastname.setText(selected_employee.getLastname());
+        tf_birthdate.setText(String.valueOf(selected_employee.getBirthdate()));
+        tf_employmentdate.setText(String.valueOf(selected_employee.getEntrydate()));
+        tf_position.setText(selected_employee.getPosition());
+        tf_schedule.setText(selected_employee.getSchedule());
 
 
         saveButton.addActionListener(new ActionListener() {
@@ -45,7 +47,7 @@ public class UpdateEmployee {
                 if (opt == JOptionPane.YES_OPTION) {
 
                     try {
-                        employeeController.updateEmployee(ListEmployee.selected_employee.getId(), tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()),Date.valueOf(tf_employmentdate.getText()),tf_position.getText(),tf_schedule.getText());
+                        employeeController.updateEmployee(selected_employee.getId(), tf_firstname.getText(), tf_lastname.getText(), Date.valueOf(tf_birthdate.getText()),Date.valueOf(tf_employmentdate.getText()),tf_position.getText(),tf_schedule.getText());
                     } catch (ClassNotFoundException classNotFoundException) {
                         classNotFoundException.printStackTrace();
                     } catch (SQLException throwables) {

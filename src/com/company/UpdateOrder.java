@@ -1,5 +1,6 @@
 package com.company;
 
+import com.models.Order;
 import com.models.OrderController;
 
 import javax.swing.*;
@@ -16,29 +17,30 @@ public class UpdateOrder {
     private JTextField tf_name;
     private JTextField tf_quantity;
     private JTextField tf_orderdate;
-    private JTextField tf_url;
+    private JTextPane tp_url;
     private JCheckBox status_checkbox;
     private static JFrame frame;
-    private boolean status;
+
+    private Order selected_order = ListOrder.selected_order;
 
     public UpdateOrder() {
         OrderController orderController = new OrderController();
 
         tf_id.setEditable(false);
-        tf_id.setText(String.valueOf(ListOrder.selected_order.getId()));
-        tf_name.setText(ListOrder.selected_order.getName());
-        tf_quantity.setText(String.valueOf(ListOrder.selected_order.getQuantity()));
-        tf_orderdate.setText(String.valueOf(ListOrder.selected_order.getOrderdate()));
-        tf_url.setText(ListOrder.selected_order.getUrl());
-        status_checkbox.setSelected(ListOrder.selected_order.getStatus());
+        tf_id.setText(String.valueOf(selected_order.getId()));
+        tf_name.setText(selected_order.getName());
+        tf_quantity.setText(String.valueOf(selected_order.getQuantity()));
+        tf_orderdate.setText(String.valueOf(selected_order.getOrderdate()));
+        tp_url.setText(selected_order.getUrl());
+        status_checkbox.setSelected(selected_order.getStatus());
 
         status_checkbox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (status_checkbox.isSelected()) {
-                    status = true;
+                    selected_order.setStatus(true);
                 } else {
-                    status = false;
+                    selected_order.setStatus(false);
                 }
             }
         });
@@ -52,7 +54,7 @@ public class UpdateOrder {
                 if (opt == JOptionPane.YES_OPTION) {
 
                     try {
-                        orderController.updateOrder(ListOrder.selected_order.getId(), tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_orderdate.getText()), tf_url.getText(), status);
+                        orderController.updateOrder(selected_order.getId(), tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_orderdate.getText()), tp_url.getText(), selected_order.getStatus());
                     } catch (ClassNotFoundException classNotFoundException) {
                         classNotFoundException.printStackTrace();
                     } catch (SQLException throwables) {

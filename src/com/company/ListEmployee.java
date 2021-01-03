@@ -29,7 +29,6 @@ public class ListEmployee {
         try {
             employeeController.loadEmployee(employeeTable);
             employeeTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }

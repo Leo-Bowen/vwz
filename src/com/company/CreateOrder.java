@@ -16,7 +16,7 @@ public class CreateOrder {
     private JTextField tf_name;
     private JTextField tf_quantity;
     private JTextField tf_orderdate;
-    private JTextField tf_url;
+    private JEditorPane tp_url;
     private JCheckBox status_checkbox;
     private static JFrame frame;
     private boolean status;
@@ -26,7 +26,8 @@ public class CreateOrder {
 
         tf_id.setEditable(false);
         tf_id.setText("ID will automatically be set by database");
-        tf_orderdate.setText(orderController.getDate());
+        tf_orderdate.setText(orderController.getDate());;
+
 
         status_checkbox.addActionListener(new ActionListener() {
             @Override
@@ -44,7 +45,7 @@ public class CreateOrder {
             public void actionPerformed(ActionEvent e) {
 
                 try {
-                    orderController.addOrder(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_orderdate.getText()),tf_url.getText(), status);
+                    orderController.addOrder(tf_name.getText(), Integer.parseInt(tf_quantity.getText()), Date.valueOf(tf_orderdate.getText()), tp_url.getText(), status);
                     JOptionPane.showMessageDialog(frame, "Saved Successfully", "Information", JOptionPane.INFORMATION_MESSAGE);
                     Dashboard.main(new String[0]);
                     frame.dispose();
@@ -75,5 +76,9 @@ public class CreateOrder {
         frame.setVisible(true);
         ImageIcon img = new ImageIcon("VWZ_icon.png");
         frame.setIconImage(img.getImage());
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

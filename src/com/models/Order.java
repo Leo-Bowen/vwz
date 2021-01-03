@@ -13,6 +13,7 @@ public class Order {
 
     private String url;
 
+
     private boolean status;
 
     public Order(String name, int quantity, Date orderdate, String url, boolean status){
@@ -55,4 +56,9 @@ public class Order {
     public boolean getStatus() {
         return status;
     }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
 }

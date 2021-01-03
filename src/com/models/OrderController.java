@@ -36,9 +36,9 @@ public class OrderController {
         vwzDao.updateOrderData(id, entryorder);
     }
 
-    public void deleteOrder(int id) throws SQLException, ClassNotFoundException {
-        vwzDao = new VWZDao();
-        vwzDao.deleteOrderData(id);
+    public void deleteOrder() throws SQLException, ClassNotFoundException {
+            vwzDao = new VWZDao();
+            vwzDao.deleteOrderData();
     }
 
 
