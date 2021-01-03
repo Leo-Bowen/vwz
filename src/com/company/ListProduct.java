@@ -82,9 +82,7 @@ public class ListProduct {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+        ImageIcon img = new ImageIcon("VWZ_icon.png");
+        frame.setIconImage(img.getImage());
     }
 }

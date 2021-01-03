@@ -86,5 +86,7 @@ public class UpdateOrder {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        ImageIcon img = new ImageIcon("VWZ_icon.png");
+        frame.setIconImage(img.getImage());
     }
 }

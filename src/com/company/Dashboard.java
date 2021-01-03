@@ -7,14 +7,13 @@ import java.awt.event.ActionListener;
 public class Dashboard {
     private JPanel rootPanel;
     private JButton editOrderButton;
-    private JLabel helloLabel;
-    private JPanel secondaryPanel;
     private JButton addOrderButton;
     private JButton editProductButton;
     private JButton addProductButton;
     private JButton editEmployeeButton;
     private JButton addEmployeeButton;
     private JButton logOutButton;
+    private JLabel VWZ;
     private static JFrame frame;
 
     public Dashboard() {
@@ -74,13 +73,18 @@ public class Dashboard {
     }
 
     public static void main(String[] args) {
-        frame = new JFrame("Dashboard");
+        frame = new JFrame("VWZ");
         frame.setContentPane(new Dashboard().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        ImageIcon img = new ImageIcon("VWZ_icon.png");
+        frame.setIconImage(img.getImage());
     }
 
 
+    private void createUIComponents() {
+        VWZ = new JLabel(new ImageIcon("VWZ.png"));
+    }
 }

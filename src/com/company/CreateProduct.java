@@ -52,15 +52,13 @@ public class CreateProduct {
     }
 
     public static void main(String[] args) {
-        frame = new JFrame("AddProduct");
+        frame = new JFrame("Create Product");
         frame.setContentPane(new CreateProduct().rootPanel);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
+        ImageIcon img = new ImageIcon("VWZ_icon.png");
+        frame.setIconImage(img.getImage());
     }
 }
