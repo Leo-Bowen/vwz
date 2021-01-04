@@ -68,6 +68,7 @@ public class Dashboard {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    count = 0;
                     Login.main(new String[0]);
                 } catch (Exception exception) {
                     exception.printStackTrace();
