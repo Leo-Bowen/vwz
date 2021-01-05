@@ -25,6 +25,7 @@ public class UpdateEmployee {
     private static JFrame frame;
 
     private Employee selected_employee = ListEmployee.selected_employee;
+
     public UpdateEmployee() {
         EmployeeController employeeController = new EmployeeController();
 
@@ -78,7 +79,7 @@ public class UpdateEmployee {
                     } catch (ClassNotFoundException classNotFoundException) {
                         classNotFoundException.printStackTrace();
                     }
-
+                    ListEmployee.main(new String[0]);
                     JOptionPane.showMessageDialog(frame, "Deleted", "Information", JOptionPane.INFORMATION_MESSAGE);
                 } else if (opt == JOptionPane.NO_OPTION) {
                     UpdateEmployee.main(new String[0]);
@@ -90,6 +91,7 @@ public class UpdateEmployee {
         returnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ListEmployee.main(new String[0]);
                 frame.dispose();
             }
         });
