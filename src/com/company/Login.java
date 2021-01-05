@@ -1,5 +1,6 @@
 package com.company;
-import com.jdbc.*;
+
+import com.jdbc.DbController;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class Login extends JFrame{
+public class Login extends JFrame {
     private JTextField tf_username;
     private JPasswordField tf_password;
     private JButton button1;
@@ -37,7 +38,7 @@ public class Login extends JFrame{
         tf_password.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyCode() == KeyEvent.VK_ENTER){
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                     try {
                         credentials();
                     } catch (NoSuchAlgorithmException noSuchAlgorithmException) {
@@ -48,23 +49,22 @@ public class Login extends JFrame{
         });
     }
 
-    public void credentials() throws NoSuchAlgorithmException{
+    public void credentials() throws NoSuchAlgorithmException {
         String s = new String(tf_password.getPassword()); //Arrays.equals(password.toCharArray(), passwordField1.getPassword())
         //as user
-        if((tf_username.getText().equals(username2)) && password.equals(toHexString(getSHA(s)))){
+        if ((tf_username.getText().equals(username2)) && password.equals(toHexString(getSHA(s)))) {
             Dashboard.main(new String[]{username2});
             frame.dispose();
-        } else if ((tf_username.getText().equals(username)) && password.equals(toHexString(getSHA(s)))){
+        } else if ((tf_username.getText().equals(username)) && password.equals(toHexString(getSHA(s)))) {
             Dashboard.main(new String[]{username});
             frame.dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Wrong Password or Username");
-            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Wrong Password or Username");
+        }
 
     }
 
-    public static byte[] getSHA(String input) throws NoSuchAlgorithmException
-    {
+    public static byte[] getSHA(String input) throws NoSuchAlgorithmException {
         // Static getInstance method is called with hashing SHA
         MessageDigest md = MessageDigest.getInstance("SHA-256");
 
@@ -74,8 +74,7 @@ public class Login extends JFrame{
         return md.digest(input.getBytes(StandardCharsets.UTF_8));
     }
 
-    public static String toHexString(byte[] hash)
-    {
+    public static String toHexString(byte[] hash) {
         // Convert byte array into signum representation
         BigInteger number = new BigInteger(1, hash);
 
@@ -83,8 +82,7 @@ public class Login extends JFrame{
         StringBuilder hexString = new StringBuilder(number.toString(16));
 
         // Pad with leading zeros
-        while (hexString.length() < 32)
-        {
+        while (hexString.length() < 32) {
             hexString.insert(0, '0');
         }
 
@@ -98,11 +96,11 @@ public class Login extends JFrame{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        ImageIcon img = new ImageIcon("VWZ_icon.png");frame.setIconImage(img.getImage());
+        frame.setIconImage(new ImageIcon("resources/vwz_icon.png").getImage());
         DbController.getInstance();
     }
 
     private void createUIComponents() {
-        VWZ = new JLabel(new ImageIcon("VWZ.png"));
+        VWZ = new JLabel(new ImageIcon("resources/vwz.png"));
     }
 }

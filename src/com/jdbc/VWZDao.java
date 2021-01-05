@@ -269,7 +269,7 @@ public class VWZDao {
         table.setRowSorter(TRS);
         table.setModel(OrderDTM);
         table.getColumn("ID").setPreferredWidth(20);
-        table.getColumn("Name").setPreferredWidth(150);
+        table.getColumn("Name").setPreferredWidth(220);
         table.getColumn("Quantity").setPreferredWidth(80);
         table.getColumn("Order Date").setPreferredWidth(100);
         table.getColumn("URL").setPreferredWidth(250);

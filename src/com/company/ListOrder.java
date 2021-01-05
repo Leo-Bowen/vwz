@@ -2,7 +2,6 @@ package com.company;
 
 import com.models.Order;
 import com.models.OrderController;
-import com.models.Product;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -107,7 +106,6 @@ public class ListOrder {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        ImageIcon img = new ImageIcon("VWZ_icon.png");
-        frame.setIconImage(img.getImage());
+        frame.setIconImage(new ImageIcon("resources/vwz_icon.png").getImage());
     }
 }

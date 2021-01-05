@@ -86,7 +86,7 @@ public class ListEmployee {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        ImageIcon img = new ImageIcon("VWZ_icon.png");
+        ImageIcon img = new ImageIcon("resources/vwz_icon.png");
         frame.setIconImage(img.getImage());
     }
 }

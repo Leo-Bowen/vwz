@@ -89,13 +89,12 @@ public class Dashboard {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        ImageIcon img = new ImageIcon("VWZ_icon.png");
-        frame.setIconImage(img.getImage());
+        frame.setIconImage(new ImageIcon("resources/vwz_icon.png").getImage());
     }
 
 
     private void createUIComponents() {
-        VWZ = new JLabel(new ImageIcon("VWZ.png"));
+        VWZ = new JLabel(new ImageIcon("resources/avwz.png"));
     }
 
     private boolean checkMode(){
