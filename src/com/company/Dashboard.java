@@ -94,7 +94,7 @@ public class Dashboard {
 
 
     private void createUIComponents() {
-        VWZ = new JLabel(new ImageIcon("resources/avwz.png"));
+        VWZ = new JLabel(new ImageIcon("resources/vwz.png"));
     }
 
     private boolean checkMode(){
